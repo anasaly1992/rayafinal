@@ -461,14 +461,18 @@
                                                          
                                                         @php
                                                         $images =App\Image::where('product_id',$product->id)->get();
+                                                         $flag = 0; 
                                                         @endphp
                                                         @foreach($images as $image)
                                                         @php
                                                         $imagePath = 'upload/product/other'.$image->img_name ;
+                                                       
                                                          @endphp
-                                                        <div class="tab-pane  fade in active" id="{{$image->id}}">
+                                                        <div class="tab-pane  fade in <?php if($flag ==0) echo 'active'; ?>" id="{{$image->id}}">
                                                             <img src="{{asset($imagePath)}}" alt="" />
                                                         </div>
+                                                        @php $flag++; 
+                                                        @endphp
                                                         @endforeach
                                                     </div>
                                                     <div class="quick-thumb">

@@ -257,11 +257,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-<<<<<<< HEAD
                                 <button type="submit" class="login-btn">
-=======
-                                <button type="submit" class="btn btn-primary">
->>>>>>> 2e09f68030745fe15265ec8f2ecf6d093f3d7973
                                     {{ __('Register') }}
                                 </button>
                             </div>
@@ -270,11 +266,7 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
      </div>
   </div>
-=======
-    </div>
->>>>>>> 2e09f68030745fe15265ec8f2ecf6d093f3d7973
 </div>
 @endsection

@@ -35,26 +35,13 @@
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-<<<<<<< HEAD
                                 <input id="login-pass" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" Placeholder="Password" name="password" required>
                                 
-=======
-                      <!-- <input id="login-email" type="email" required="" placeholder="Email Address"> -->
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="input-box">
-
-                      <label for="login-pass">كلمة السر</label>
-                        <input id="login-pass" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
->>>>>>> 2e09f68030745fe15265ec8f2ecf6d093f3d7973
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-<<<<<<< HEAD
                                 <div class="button-remember">
                                     <div class="checkbox-remember">
                                        <input id="checkbox" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> 
@@ -92,35 +79,3 @@
         </div>
     </div>
 @endsection
-=======
-                      <!-- <input id="login-pass" type="password" required="" placeholder="Enter your Password"> -->
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="check-box left-side"> 
-                      <span>
-                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> 
-                        <label for="remember_me">تذكرني</label>
-                      </span>
-                    </div>
-                    <button name="submit" type="submit" class="btn-color right-side">Log In</button>
-                  </div>
-
-                  <div class="col-12">  <a title="Forgot Password" class="forgot-password mtb-20" href="{{ route('password.request') }}">
-                                    {{ __('نسيت كلمة السر?') }}
-                                </a>
-                    <hr>
-                  </div>
-                  <div class="col-12">
-                    <div class="new-account align-center mt-20"> <span>جديد في روفانا ?</span> <a class="link" title="Register with Stylexpo" href="{{route('register')}}">تسجيل جديد </a> </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-@include('tamplete.partains.footer')
->>>>>>> 2e09f68030745fe15265ec8f2ecf6d093f3d7973

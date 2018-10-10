@@ -43,17 +43,13 @@
    @foreach($productFeatures as $detail)
    <tr>
   <td>{{$x++}} </td>
-  <td>{{$detail->code}}</td>
-  <td>{{$detail->featuredeatils()->name-ar}}</td>
-  
-  <td>{!! \Illuminate\Support\Str::words($supplier->note, 5,'....')  !!}</td>
-  
-
-
+  <td>{{$detail->feature->name_en}}</td>
+<td>@if(isset($detail->featuredetails->name_en)) {{$detail->featuredetails->name_en}} @endif</td>
+<td> @if(isset($detail->product->name_en))  {{$detail->product->name_en}} @endif </td>
+<td>{{$detail->price}}</td>
   <td> 
-  <form class="delete" action="{{ route('productfeature.destroy',$detail->id) }}" method="POST">
-  <!-- <a class="btn btn-info" href="{{ route('productfeature.show',$supplier->id) }}">Show</a> -->
-  <a class="fa fa-edit "  style="font-size:16px"  href="{{ route('productfeature.edit',$detail->id) }}"></a>
+  <form class="delete" action="{{ route('productfeatures.destroy',$detail->id) }}" method="POST">
+  <a class="fa fa-edit "  style="font-size:16px"  href="{{ route('productfeatures.edit',$detail->id) }}"></a>
    <input type="hidden" name="_method" value="DELETE">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <button type="submit " class="fa fa-close"  style="font-size:14px;color:red " value="Delete"> </button>

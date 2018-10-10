@@ -60,10 +60,12 @@ Route::group(['middleware' => 'is.admin'], function () {
   Route::resource('admin/orders','admin\OrderController');
  //Coupon 
   Route::resource('admin/coupons','admin\CouponController');
-
+//service
   Route::resource('admin/services','admin\ServiceController');
-
+//setting 
   Route::resource('admin/settings','admin\SettingController');
+  //categories 
+  Route::resource('admin/categories','admin\CategoryController');
   //branches
   Route::resource('admin/branches','admin\BranchController');
 

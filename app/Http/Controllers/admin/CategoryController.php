@@ -49,32 +49,15 @@ class CategoryController extends Controller
         request()->validate([
             'name_en' => 'required',
             'name_ar' => 'required',
-<<<<<<< HEAD
-            'country_id' => 'required',
-=======
             'details_en' => 'required',
             'details_ar' => 'required',
->>>>>>> 2e09f68030745fe15265ec8f2ecf6d093f3d7973
             'parent_id' => 'nullable',
             'status' => 'required',
             'order' => 'required',
         ]);
-<<<<<<< HEAD
-        $category=new Category;
-        // $building->postcode = $request->postcode ;
-        $category->name_en=$request->name_en;
-        $category->name_ar=$request->name_ar;
-        $category->parent_id=$request->parent_id;
-        $category->country_id=$request->country_id;
-        $category->status=$request->status;
-        $category->order=$request->order;
-        $category-> save();
-        //$category->country_id()->sync($request->country_id);
-=======
         $input = $request->all();
         Category::create($input);
 
->>>>>>> 2e09f68030745fe15265ec8f2ecf6d093f3d7973
         return redirect()->route('categories.index')
         ->with('success','Category Add successfully');
    
@@ -86,18 +69,11 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
-    public function show(Category $category)
-    {
-        //
-    }
-=======
     public function show($id)
     {
         //
         $category = Category::find($id);
         return view('admin.categories.show', compact('category'));    }
->>>>>>> 2e09f68030745fe15265ec8f2ecf6d093f3d7973
 
     /**
      * Show the form for editing the specified resource.
@@ -121,22 +97,15 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
-=======
     
->>>>>>> 2e09f68030745fe15265ec8f2ecf6d093f3d7973
     public function update(Request $request, Category $category)
     {
         //
         request()->validate([
             'name_en' => 'required',
             'name_ar' => 'required',
-<<<<<<< HEAD
-            'country_id' => 'required',
-=======
             'details_en' => 'required',
             'details_ar' => 'required',
->>>>>>> 2e09f68030745fe15265ec8f2ecf6d093f3d7973
             'parent_id' => 'nullable',
             'status' => 'required',
             'order' => 'required',

@@ -436,8 +436,13 @@
         </div>
     </footer>
     <!-- footer area end -->
+
+    @php 
+      $products = App\Product::where('status',1)->get();
+    @endphp
+@foreach($products as $product)
     <!-- quick view start -->
-    <div class="quick-view modal fade in" id="quick-view">
+    <div class="quick-view{{$product->id}} modal fade in" id="quick-view{{$product->id}}">
         <div class="container">
             <div class="row">
                 <div id="view-gallery">
@@ -481,7 +486,7 @@
                                             <div class="col-xs-12 col-sm-7">
                                                 <div class="quick-right">
                                                     <div class="quick-right-text">
-                                                        <h3><strong>product name title</strong></h3>
+                                                        <h3><strong>{{$product->name_en}}</strong></h3>
                                                         <div class="rating">
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
@@ -566,7 +571,7 @@
         </div>
     </div>
     <!-- quick view end -->
-
+@endforeach
 
     <!-- all js here -->
     <script src="{{asset('assets/js/vendor/jquery-1.12.0.min.js')}}"></script>

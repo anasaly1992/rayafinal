@@ -40,7 +40,6 @@ Route::group(['middleware' => 'is.admin'], function () {
  Route::resource('admin/users','admin\UserController');
   //currencies
   Route::resource('admin/currencies','admin\CurrencyController');
-
   //slideshow
   Route::resource('admin/slideshow','admin\SlideShowController');
   //Country

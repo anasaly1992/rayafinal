@@ -458,26 +458,28 @@
                                             <div class="col-xs-12 col-sm-5">
                                                 <div class="quick-image">
                                                     <div class="single-quick-image tab-content text-center">
-                                                        <div class="tab-pane  fade in active" id="sin-pro-1">
-                                                            <img src="assets/img/shop/q1.jpg" alt="" />
+                                                         
+                                                        @php
+                                                        $images =App\Image::where('product_id',$product->id)->get();
+                                                        @endphp
+                                                        @foreach($images as $image)
+                                                        @php
+                                                        $imagePath = 'upload/product/other'.$image->img_name ;
+                                                         @endphp
+                                                        <div class="tab-pane  fade in active" id="{{$image->id}}">
+                                                            <img src="{{asset($imagePath)}}" alt="" />
                                                         </div>
-                                                        <div class="tab-pane fade in" id="sin-pro-2">
-                                                            <img src="assets/img/shop/q2.jpg" alt="" />
-                                                        </div>
-                                                        <div class="tab-pane fade in" id="sin-pro-3">
-                                                            <img src="assets/img/shop/q3.jpg" alt="" />
-                                                        </div>
-                                                        <div class="tab-pane fade in" id="sin-pro-4">
-                                                            <img src="assets/img/shop/q4.jpg" alt="" />
-                                                        </div>
+                                                        @endforeach
                                                     </div>
                                                     <div class="quick-thumb">
                                                         <div class="nav nav-tabs">
                                                             <ul>
-                                                                <li><a data-toggle="tab" href="#sin-pro-1"> <img src="assets/img/shop/q1.jpg" alt="quick view" /> </a></li>
-                                                                <li><a data-toggle="tab" href="#sin-pro-2"> <img src="assets/img/shop/q2.jpg" alt="quick view" /> </a></li>
-                                                                <li><a data-toggle="tab" href="#sin-pro-3"> <img src="assets/img/shop/q3.jpg" alt="quick view" /> </a></li>
-                                                                <li><a data-toggle="tab" href="#sin-pro-4"> <img src="assets/img/shop/q4.jpg" alt="quick view" /> </a></li>
+                                                         @foreach($images as $image)
+                                                         @php
+                                                         $imagePath = 'upload/product/other/'.$image->img_name ;
+                                                         @endphp
+                                                                <li><a data-toggle="tab" href="#{{$image->id}}"> <img src="{{asset($imagePath)}}" alt="quick view" /> </a></li>
+                                                         @endforeach
                                                             </ul>
                                                         </div>
                                                     </div>

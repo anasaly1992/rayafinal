@@ -109,7 +109,7 @@
                 <button class="active" data-filter="*">ALL</button>
                 @foreach($categories as $category)
                 <button data-filter=".mix{{$category->id}}">{{$category->name_en}} </button>
-         @endforeach
+                @endforeach
             </div>
             <div class="row portfolio-style-2">
                 <div class="grid">

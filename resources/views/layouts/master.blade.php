@@ -123,6 +123,8 @@
         <li ><a href="{{url('admin/currencies')}}"><i class="fa fa-usd"></i> <span>Currencies</span></a></li>
         <li><a href="{{url('admin/countries')}}"><i class="fa fa-codiepie"></i> <span>Countries</span></a></li>
         <li><a href="{{url('admin/services')}}"><i class="fa fa-codiepie"></i> <span>Services</span></a></li>
+        <li><a href="{{url('admin/branches')}}"><i class="fa fa-codiepie"></i> <span>Branches</span></a></li>
+
         <li><a href="{{url('admin/pages')}}"><i class="fa fa-codiepie"></i> <span>Pages</span></a></li>
         <li class=" treeview" >
         <a href="#">
@@ -134,7 +136,10 @@
           <ul class="treeview-menu" style="display: none;">
           <li class="level"><a href="{{url('admin/products')}}"><i class="fa fa-product-hunt"></i> <span>Products</span></a></li> 
           <li><a href="{{url('admin/categories')}}"><i class="fa fa-link"></i> <span>Categories</span></a></li>
-          <li><a href="{{url('admin/featureproduct')}}"><i class="fa fa-angellist"></i> <span>Product Feature</span></a></li>
+                  <li><a href="{{url('admin/features')}}"><i class="fa fa-angellist"></i> <span> Features</span></a></li>
+                  <li><a href="{{url('admin/featuredetails')}}"><i class="fa fa-angellist"></i> <span> Features details</span></a></li>
+                  <li><a href="{{url('admin/productfeature')}}"><i class="fa fa-angellist"></i> <span> Product Feature</span></a></li>
+
           <li><a href="{{url('admin/orders')}}"><i class="fa fa-get-pocket"></i> <span>Order</span></a></li>
 
           </ul>

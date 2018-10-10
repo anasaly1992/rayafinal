@@ -17,9 +17,10 @@ class FeatureProductController extends Controller
      */
     public function index()
     {
+        
         //
        $x=1;
-       $productFeatures=ProductFeature::lastest()->paginate(20);
+       $productFeatures=ProductFeature::latest()->paginate(50);
         return view('admin.productfeature.index ',compact('productFeatures','x'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
 

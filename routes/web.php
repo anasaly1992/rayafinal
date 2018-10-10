@@ -50,6 +50,12 @@ Route::group(['middleware' => 'is.admin'], function () {
   Route::resource('admin/slideshows','admin\SlideshowController');
   //products
   Route::resource('admin/products','admin\ProductController');
+//feature
+  Route::resource('admin/features','admin\FeatureController');
+    //feature details
+  Route::resource('admin/featuredetails','admin\FeatureDetailsController');
+    //product features
+  Route::resource('admin/productfeature','admin\FeatureProductController');
   // orderdetails
   Route::resource('admin/orders','admin\OrderController');
  //Coupon 
@@ -58,6 +64,8 @@ Route::group(['middleware' => 'is.admin'], function () {
   Route::resource('admin/services','admin\ServiceController');
 
   Route::resource('admin/settings','admin\SettingController');
+  //branches
+  Route::resource('admin/branches','admin\BranchController');
 
   Route::resource('admin/pages','admin\PageController');
   

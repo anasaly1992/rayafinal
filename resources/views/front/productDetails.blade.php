@@ -11,9 +11,9 @@
                 <h2 class="breadcrumb-title">{{$product->name_en}}</h2>
                 <ul>
                     <li>
-                        <a class="active" href="#">Home</a>
+                        <a class="active" href="{{route('home')}}">Home</a>
                     </li>
-                    <li>single product</li>
+                    <li>{{$product->name_en}}</li>
                 </ul>
             </div>
         </div>
@@ -30,64 +30,48 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="product1">
                                 <div class="large-img">
-                                    <img src="assets/img/shop/3.jpg" alt="" />
+                                    <img src="{!!asset('upload/product/'.$product->img_main)!!}" alt="{{$product->name_en}}" />
                                 </div>
                             </div>
-                            <div class="tab-pane" id="product2">
+                            @foreach($images as $image)
+                            <div class="tab-pane" id="product{{$x++}}">
                                 <div class="large-img">
-                                    <img src="assets/img/shop/4.jpg" alt="" />
+                                    <img src="{!!asset('upload/product/other'.$image->img_name)!!}" alt="{{$product->name_en}}" />
                                 </div>
                             </div>
-                            <div class="tab-pane" id="product3">
-                                <div class="large-img">
-                                    <img src="assets/img/shop/5.jpg" alt="" />
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="product4">
-                                <div class="large-img">
-                                    <img src="assets/img/shop/6.jpg" alt="" />
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="product5">
-                                <div class="large-img">
-                                    <img src="assets/img/shop/3.jpg" alt="" />
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="product6">
-                                <div class="large-img">
-                                    <img src="assets/img/shop/4.jpg" alt="" />
-                                </div>
-                            </div>
+                        @endforeach
                         </div>
                         <!-- Nav tabs -->
                         <div class="details-tab owl-carousel">
-                            <div class="active"><a href="#product1" data-toggle="tab"><img src="assets/img/shop/3.jpg" alt="" /></a></div>
-                            <div><a href="#product2" data-toggle="tab"><img src="assets/img/shop/4.jpg" alt="" /></a></div>
-                            <div><a href="#product3" data-toggle="tab"><img src="assets/img/shop/5.jpg" alt="" /></a></div>
-                            <div><a href="#product4" data-toggle="tab"><img src="assets/img/shop/6.jpg" alt="" /></a></div>
-                            <div><a href="#product5" data-toggle="tab"><img src="assets/img/shop/3.jpg" alt="" /></a></div>
-                            <div><a href="#product6" data-toggle="tab"><img src="assets/img/shop/4.jpg" alt="" /></a></div>
+                            <div class="active"><a href="#product1" data-toggle="tab"><img src="{!!asset('upload/product/'.$product->img_main)!!}" alt="" /></a></div>                            
+                            @foreach($images as $image)
+                            <div><a href="#product{{$x++}}" data-toggle="tab"><img src="{!!asset('upload/product/other/'.$image->img_name)!!}" alt="{{$product->name_en}}" /></a></div>
+                             @endforeach
                         </div>
                     </div>
                 </div>
                 <div class="col-md-7">
                     <div class="single-product-content">
                         <div class="single-product-dec pb-30  for-pro-border">
-                            <h2>Product Title</h2>
-                            <span class="ratting">
+                            <h2>{{$product->name_en}}</h2>
+                            <!-- <span class="ratting">
                                     <i class="fa fa-star active"></i>
                                     <i class="fa fa-star active"></i>
                                     <i class="fa fa-star active"></i>
                                     <i class="fa fa-star active"></i>
                                     <i class="fa fa-star active"></i>
-                                </span>
-                            <h3>$200</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                                massa. Cum sociis natoque penatibus et magnis dis parturient montes Cum sociis natoque penatibus
-                                et magnis dis parturient montes consectetuer adipiscing.</p>
+                                </span> -->
+                            <h3>{{$product->price_after}}</h3>
+                            <p>{!!$product->info_en!!}</p>
                         </div>
                         <div class="single-cart-color for-pro-border">
-                            <p>availability : <span>in stock</span></p>
+                            <p>availability : 
+                                @if($product->quantity > 0)
+                                <span>in stock</span>
+                                @else
+                                <span>Not Available</span>
+                                @endif                                
+                            </p>
                             <div class="pro-color pro-color-style-2">
                                 <p>color :</p>
                                 <ul>
@@ -108,7 +92,7 @@
                                 </ul>
                             </div>
                             <div class="model">
-                                <p>model : <span>nms005</span></p>
+                                <p>model : <span>{{$product->code}}</span></p>
                             </div>
                             <div class="pro-quality">
                                 <p>Quantity:</p>
@@ -119,24 +103,20 @@
                                         <i class="pe-7s-cart"></i>
                                         add to cart
                                     </a>
-                                <a href="#" title="wishlist">
+                                <!-- <a href="#" title="wishlist">
                                         <i class="pe-7s-like"></i>
                                         wishlist
-                                    </a>
+                                    </a> -->
                             </div>
                         </div>
                         <div class="pro-category-tag ptb-30 for-pro-border">
                             <div class="pro-category">
                                 <p>categories :</p>
                                 <ul>
-                                    <li><a href="#">fashion</a></li>
-                                    <li><a href="#">kid</a></li>
-                                    <li><a href="#">men</a></li>
-                                    <li><a href="#">women</a></li>
-                                    <li><a href="#">Watche</a></li>
+                                    <li><a href="#">{{$product->category->name_en}}</a></li>
                                 </ul>
                             </div>
-                            <div class="pro-tag">
+                            <!-- <div class="pro-tag">
                                 <p>tags :</p>
                                 <ul>
                                     <li>
@@ -155,7 +135,7 @@
                                         <a href="#">kid</a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="pro-shared">
                             <p>shared :</p>
@@ -185,7 +165,7 @@
                     </li>
                     <li>
                         <a href="#reviews" data-toggle="tab">
-                            reviews
+                            Notes
                         </a>
                     </li>
                 </ul>
@@ -193,25 +173,14 @@
             <div class="single-product-dec pb-100">
                 <div class="tab-content">
                     <div class="tab-pane active" id="description">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                            massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis
-                            enim.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                            mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-                            quis enim.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                            massa. Cum sociis natoque penatibus et magnis dis parturient montes Cum sociis natoque penatibus
-                            et magnis dis parturient montes.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                            commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
-                            montes Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+                        <p> {!!$product->description_en!!}</p>
                     </div>
                     <div class="tab-pane" id="reviews">
                         <div class="customer-reviews-all">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <p><a href="#">themedream1</a> Review by AbcThemes</p>
-                                    <div class="single-reviews">
+                                    <p>{!!$product->otherData!!}</p>
+                                    <!-- <div class="single-reviews">
                                         <div class="single-reviews-left">
                                             <p>Quality :</p>
                                         </div>
@@ -253,9 +222,9 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <p>themedream1 (Posted on 27/09/2018) </p>
+                                    <p>themedream1 (Posted on 27/09/2018) </p> -->
                                 </div>
-                                <div class="col-md-6">
+                                <!-- <div class="col-md-6">
                                     <div class="form-add table-responsive">
                                         <form action="#">
                                             <div class="form-border">
@@ -323,7 +292,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -334,7 +303,7 @@
                     <ul role="tablist">
                         <li class="active">
                             <a href="#dresses" data-toggle="tab">
-                                    related post 
+                                    related Product 
                                 </a>
                         </li>
                     </ul>

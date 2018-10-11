@@ -7,7 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace SebastianBergmann\CodeCoverage\Report\Html;
 
 use SebastianBergmann\CodeCoverage\CodeCoverage;
@@ -94,7 +93,7 @@ final class Facade
             $id = $node->getId();
 
             if ($node instanceof DirectoryNode) {
-                if (!@\mkdir($target . $id, 0777, true) && !\is_dir($target . $id)) {
+                if (!$this->createDirectory($target . $id)) {
                     throw new \RuntimeException(\sprintf('Directory "%s" was not created', $target . $id));
                 }
 
@@ -103,7 +102,7 @@ final class Facade
             } else {
                 $dir = \dirname($target . $id);
 
-                if (!@\mkdir($dir, 0777, true) && !\is_dir($dir)) {
+                if (!$this->createDirectory($dir)) {
                     throw new \RuntimeException(\sprintf('Directory "%s" was not created', $dir));
                 }
 
@@ -133,6 +132,7 @@ final class Facade
 
         \copy($this->templatePath . 'css/nv.d3.min.css', $dir . 'nv.d3.min.css');
         \copy($this->templatePath . 'css/style.css', $dir . 'style.css');
+        \copy($this->templatePath . 'css/custom.css', $dir . 'custom.css');
 
         $dir = $this->getDirectory($target . '.fonts');
         \copy($this->templatePath . 'fonts/glyphicons-halflings-regular.eot', $dir . 'glyphicons-halflings-regular.eot');
@@ -157,11 +157,11 @@ final class Facade
      */
     private function getDirectory(string $directory): string
     {
-        if (\substr($directory, -1, 1) != DIRECTORY_SEPARATOR) {
-            $directory .= DIRECTORY_SEPARATOR;
+        if (\substr($directory, -1, 1) != \DIRECTORY_SEPARATOR) {
+            $directory .= \DIRECTORY_SEPARATOR;
         }
 
-        if (!@\mkdir($directory, 0777, true) && !\is_dir($directory)) {
+        if (!$this->createDirectory($directory)) {
             throw new RuntimeException(
                 \sprintf(
                     'Directory "%s" does not exist.',
@@ -171,5 +171,10 @@ final class Facade
         }
 
         return $directory;
+    }
+
+    private function createDirectory(string $directory): bool
+    {
+        return !(!\is_dir($directory) && !@\mkdir($directory, 0777, true) && !\is_dir($directory));
     }
 }

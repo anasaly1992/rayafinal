@@ -1,19 +1,24 @@
 @extends('layouts.FrontLayout.master')
 @section('content')
 <!-- breadcrumbs start -->
+<!--  //   'code', 'name_en', 'name_ar', 'info_en', 'info_ar', 'description_en', 
+        //  'description_ar', 'price','price_after', 'otherData', 'quantity', 
+        //  'img_main', 'slug', 'order', 'status', 'category_id', -->
+        @foreach($product_show as $product )
     <div class="breadcrumbs-area breadcrumb-bg ptb-100">
         <div class="container">
             <div class="breadcrumbs text-center">
-                <h2 class="breadcrumb-title">single product</h2>
+                <h2 class="breadcrumb-title">{{$product->name_en}}</h2>
                 <ul>
                     <li>
-                        <a class="active" href="index.html">Home</a>
+                        <a class="active" href="#">Home</a>
                     </li>
                     <li>single product</li>
                 </ul>
             </div>
         </div>
     </div>
+
     <!-- breadcrumbs area end -->
     <!-- single product area start -->
     <div class="single-product-area ptb-100">
@@ -531,6 +536,7 @@
             </div>
         </div>
     </div>
+        @endforeach
     <!-- single product area end -->
     <!-- subscribe area start -->
     <div class="subscribe-area gray-bg">

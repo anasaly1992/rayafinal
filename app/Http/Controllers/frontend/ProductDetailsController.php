@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Product;
+use App\Image;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,6 @@ class ProductDetailsController extends Controller
     public function index()
     {
         //
-        return view('front.productDetails');
     }
 
     /**
@@ -42,13 +42,17 @@ class ProductDetailsController extends Controller
 
     /**
      * Display the specified resource.
-     *
+     *@param  int $id 
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
         //
+        $product_show=Product::where('id',$id)->get();
+        $images=Image::where('product_id',$id)->get();
+        return view('front.productDetails',compact('procuct','images'));
+        
     }
 
     /**

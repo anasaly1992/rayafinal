@@ -4,7 +4,7 @@
 
 
                           <!-- {{csrf_field()}} -->
-                          <div class="form-group">
+                      <div class="form-group">
                           <label for="name" class=" col-form-label text-md-right">{{ __('Title English ') }}</label>
 
                           <div class="">
@@ -17,7 +17,38 @@
 
                               <input id="title_ar" type="text" class="form-control" name="title_ar"  required autofocus>
 
-                          </div>
+                     </div>
+                     
+                     <div class="form-group">
+                      <label for="name" class=" col-form-label text-md-right">{{ __('Introduction English ') }}</label>
+
+                      <div class="">
+                          <input id="intro_en " type="text" class="form-control" name="intro_en" required >
+                         
+                      </div>
+                  </div>
+                  <div class="form-group ">
+                      <label for="name" class=" col-form-label text-md-right">{{ __('Introduction Arabic') }}</label>
+
+                          <input id="intro_ar" type="text" class="form-control" name="intro_ar"  required autofocus>
+
+                 </div>
+
+
+                 <div class="form-group">
+                  <label for="name" class=" col-form-label text-md-right">{{ __('Details English ') }}</label>
+
+                  <div class="">
+                      <input id="details_en " type="text" class="form-control" name="details_en" required >
+                     
+                  </div>
+              </div>
+              <div class="form-group ">
+                  <label for="name" class=" col-form-label text-md-right">{{ __('Details Arabic') }}</label>
+                       
+                      <input id="details_ar" type="text" class="form-control" name="details_ar"  required autofocus>
+
+             </div>
 
                           <div class="form-group ">
                             <label for="name" class=" col-form-label text-md-right">{{ __('Link') }}</label>

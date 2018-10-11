@@ -38,18 +38,56 @@
                           <!-- {{csrf_field()}} -->
                           <div class="form-group">
                           <label for="name" class=" col-form-label text-md-right">{{ __('Title English ') }}</label>
-
                           <div class="">
                               <input id="title_en " type="text" class="form-control" name="title_en" value="{{$slideshow->title_en}}" required autofocus>
                              
                           </div>
                       </div>
-                      <div class="form-group ">
-                          <label for="name" class=" col-form-label text-md-right">{{ __('Title Arabic') }}</label>
 
-                              <input id="title_ar" type="text" class="form-control" name="title_ar" value="{{$slideshow->title_ar}}" required autofocus>
+                      <div class="form-group ">
+                        <label for="name" class=" col-form-label text-md-right">{{ __('Title Arabic') }}</label>
+
+                            <input id="title_ar" type="text" class="form-control" name="title_ar" value="{{$slideshow->title_ar}}" required autofocus>
+
+                        </div>
+
+                      <div class="form-group ">
+                          <label for="name" class=" col-form-label text-md-right">{{ __('Intro Arabic') }}</label>
+
+                              <input id="intro_ar" type="text" class="form-control" name="intro_ar" value="{{$slideshow->intro_ar}}" required autofocus>
 
                           </div>
+
+
+                          <div class="form-group">
+                            <label for="name" class=" col-form-label text-md-right">{{ __('intro English ') }}</label>
+  
+                            <div class="">
+                                <input id="intro_en " type="text" class="form-control" name="intro_en" value="{{$slideshow->intro_en}}" required autofocus>
+                               
+                            </div>
+                        </div>
+                     
+
+                        <div class="form-group ">
+                            <label for="name" class=" col-form-label text-md-right">{{ __('Details Arabic') }}</label>
+  
+                                <input id="details_ar" type="text" class="form-control" name="details_ar" value="{{$slideshow->details_ar}}" required autofocus>
+  
+                            </div>
+  
+  
+                            <div class="form-group">
+                              <label for="name" class=" col-form-label text-md-right">{{ __('Details English ') }}</label>
+    
+                              <div class="">
+                                  <input id="details_en " type="text" class="form-control" name="details_en" value="{{$slideshow->details_en}}" required autofocus>
+                                 
+                              </div>
+                          </div>
+                       
+
+                          
 
                           <div class="form-group ">
                             <label for="name" class=" col-form-label text-md-right">{{ __('Link') }}</label>

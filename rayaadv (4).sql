@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 01, 2018 at 04:36 PM
+-- Generation Time: Oct 11, 2018 at 10:21 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -41,6 +41,13 @@ CREATE TABLE `branches` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `branches`
+--
+
+INSERT INTO `branches` (`id`, `country_id`, `name_ar`, `name_en`, `address_en`, `address_ar`, `phone`, `email`, `created_at`, `updated_at`) VALUES
+(1, 1, 'معادي', 'maadi', '24/3 ب شارع البساتين المتفرع من اللاسلكي المعادي', '24/3 ب شارع البساتين المتفرع من اللاسلكي المعادي', '01221292134', 'info@raya-adv.com', '2018-10-11 05:03:16', '2018-10-11 05:03:16');
+
 -- --------------------------------------------------------
 
 --
@@ -65,7 +72,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name_en`, `name_ar`, `details_en`, `details_ar`, `parent_id`, `order`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'eg', 'eg', 'dffffffffffffffg', 'fggggggggggggd', NULL, 2, 1, NULL, NULL);
+(1, 'eg', 'eg', 'dffffffffffffffg', 'fggggggggggggd', NULL, 2, 1, NULL, NULL),
+(2, 'category2', 'category2', '<p>category2</p>', '<p>category2</p>', NULL, 3, 1, '2018-10-10 12:07:58', '2018-10-10 12:07:58');
 
 -- --------------------------------------------------------
 
@@ -87,7 +95,8 @@ CREATE TABLE `countries` (
 --
 
 INSERT INTO `countries` (`id`, `name_en`, `name_ar`, `currency_id`, `created_at`, `updated_at`) VALUES
-(1, 'egypt', 'مصر', 1, NULL, NULL);
+(1, 'egypt', 'مصر', 1, NULL, NULL),
+(2, 'Be habby', 'bbn', 2, '2018-10-03 09:21:06', '2018-10-03 09:21:06');
 
 -- --------------------------------------------------------
 
@@ -104,6 +113,13 @@ CREATE TABLE `coupons` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `coupons`
+--
+
+INSERT INTO `coupons` (`id`, `code`, `product_id`, `multiUse`, `status`, `created_at`, `updated_at`) VALUES
+(1, '322322', 3, 0, 1, '2018-10-03 11:38:02', '2018-10-03 11:38:02');
 
 -- --------------------------------------------------------
 
@@ -124,7 +140,8 @@ CREATE TABLE `currencies` (
 --
 
 INSERT INTO `currencies` (`id`, `name_en`, `name_ar`, `created_at`, `updated_at`) VALUES
-(1, 'pound', 'جنيه', NULL, NULL);
+(1, 'pound', 'جنيه', NULL, NULL),
+(2, 'Riyal', 'ريال', '2018-10-03 09:20:57', '2018-10-10 12:23:23');
 
 -- --------------------------------------------------------
 
@@ -140,6 +157,13 @@ CREATE TABLE `features` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `features`
+--
+
+INSERT INTO `features` (`id`, `name_ar`, `name_en`, `slug`, `created_at`, `updated_at`) VALUES
+(1, 'sara', 'sara', 'sara', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -158,6 +182,13 @@ CREATE TABLE `features_detailes` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `features_detailes`
+--
+
+INSERT INTO `features_detailes` (`id`, `feature_id`, `name_ar`, `name_en`, `details_ar`, `details_en`, `created_at`, `updated_at`) VALUES
+(1, 1, 'sara', 'sara', 'asasa', 'sassa', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -173,6 +204,13 @@ CREATE TABLE `feature_product` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `feature_product`
+--
+
+INSERT INTO `feature_product` (`id`, `feature_id`, `feature_deatils_id`, `product_id`, `price`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 3, 20, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -194,11 +232,16 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `product_id`, `img_name`, `link`, `created_at`, `updated_at`) VALUES
-(5, 3, '3_product0.PNG', NULL, '2018-10-01 10:55:35', '2018-10-01 10:55:35'),
-(6, 3, '3_product1.PNG', NULL, '2018-10-01 10:55:35', '2018-10-01 10:55:35'),
-(7, 3, '3_product2.jpg', NULL, '2018-10-01 10:55:35', '2018-10-01 10:55:35'),
-(8, 3, '3_product3.jpg', NULL, '2018-10-01 10:55:35', '2018-10-01 10:55:35'),
-(9, 4, '4_product0.jpg', NULL, '2018-10-01 11:52:04', '2018-10-01 11:52:04');
+(9, 4, '4_product0.jpg', NULL, '2018-10-01 11:52:04', '2018-10-01 11:52:04'),
+(10, 4, '4_product1.jpg', NULL, '2018-10-08 08:51:51', '2018-10-08 08:51:51'),
+(11, 4, '4_product0.jpg', NULL, '2018-10-08 08:53:20', '2018-10-08 08:53:20'),
+(12, 4, '4_product1.jpg', NULL, '2018-10-08 08:53:21', '2018-10-08 08:53:21'),
+(13, 5, '5_product0.jpg', NULL, '2018-10-10 12:11:43', '2018-10-10 12:11:43'),
+(14, 5, '5_product1.jpg', NULL, '2018-10-10 12:11:43', '2018-10-10 12:11:43'),
+(15, 5, '5_product2.jpg', NULL, '2018-10-10 12:11:43', '2018-10-10 12:11:43'),
+(16, 3, '3_product0.jpg', NULL, '2018-10-10 13:39:19', '2018-10-10 13:39:19'),
+(17, 3, '3_product1.jpg', NULL, '2018-10-10 13:39:19', '2018-10-10 13:39:19'),
+(18, 3, '3_product2.jpg', NULL, '2018-10-10 13:39:19', '2018-10-10 13:39:19');
 
 -- --------------------------------------------------------
 
@@ -258,6 +301,13 @@ CREATE TABLE `opinions` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `opinions`
+--
+
+INSERT INTO `opinions` (`id`, `title_ar`, `title_en`, `name_ar`, `name_en`, `position_ar`, `position_en`, `image`, `created_at`, `updated_at`) VALUES
+(4, '<p>اجري ياله من هنا&nbsp;</p>', '<p>agry ya wad men hena&nbsp;</p>', 'سارة', 'sara', 'ويب ديفلوبر', 'Web developer', '4_opinion.jpg', '2018-10-08 08:07:39', '2018-10-08 08:07:39');
+
 -- --------------------------------------------------------
 
 --
@@ -280,6 +330,13 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `invoiceID`, `user_id`, `quantity`, `total_price`, `shipping_cost`, `paymentMethod`, `paymentToken`, `payment_statue`, `coupon`, `statue`, `created_at`, `updated_at`) VALUES
+(1, 10000, 1, 2, 200, 200, 'sdssf', 'fdsfsd', 'sfdffd', 'ds', 0, '2018-10-02 22:00:00', '2018-10-02 22:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -295,6 +352,14 @@ CREATE TABLE `order_details` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `price`, `quantity`, `created_at`, `updated_at`) VALUES
+(1, 1, 3, 200, 2, '2018-10-02 22:00:00', '2018-10-02 22:00:00'),
+(2, 1, 4, 30, 5, '2018-10-03 22:00:00', '2018-10-03 22:00:00');
 
 -- --------------------------------------------------------
 
@@ -316,6 +381,13 @@ CREATE TABLE `pages` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `pages`
+--
+
+INSERT INTO `pages` (`id`, `title_ar`, `title_en`, `name_ar`, `name_en`, `details_en`, `details_ar`, `slug`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'سارة فاشون', 'sara', 'محل بشري سارة', 'Be habby', '<p>fddddg</p>', '<p>fdddddddg</p>', 'sar-fashon', '1page.jpg', '2018-10-02 10:54:59', '2018-10-02 10:59:48');
+
 -- --------------------------------------------------------
 
 --
@@ -327,6 +399,14 @@ CREATE TABLE `password_resets` (
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('samaa4654@gmail.com', '$2y$10$t0Zb9H9pDhBVufQEpC48G.Du1g.E3.HwUlG7kkEhZw22msIgkrl8S', '2018-10-09 09:49:18'),
+('sara@inc-house.com', '$2y$10$pWWow0fppK3MrIVaawsE1.MTwUxwEcDz014wWp946qkFNX1ya5CIG', '2018-10-09 09:49:47');
 
 -- --------------------------------------------------------
 
@@ -361,8 +441,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `code`, `name_en`, `name_ar`, `info_en`, `info_ar`, `description_en`, `description_ar`, `price`, `price_after`, `otherData`, `quantity`, `img_main`, `slug`, `order`, `status`, `category_id`, `created_at`, `updated_at`) VALUES
-(3, 32232, 'Be habby', 'محل بشري سارة', 'sara', 'أنس علي', '<p>sas</p>', '<p>saddsdd</p>', 12, 12, 'sddsad dsad', 200, '3_product.png', 'ara', 3, 1, 1, '2018-10-01 10:55:35', '2018-10-01 12:14:20'),
-(4, 32232, 'Be habby', 'ساره', 'sara', 'sara', '<p>saaaaaaa</p>', '<p>saaaaaaaa</p>', 123, 123, 'sddsad dsad', 120, '4_product.jpg', 'mhl-bshry-sar', 3, 1, 1, '2018-10-01 11:52:04', '2018-10-01 11:55:15');
+(3, 32232, 'Be habby', 'محل بشري سارة', 'sara', 'أنس علي', '<p>sas</p>', '<p>saddsdd</p>', 12, 12, 'sddsad dsad', 200, '3_product.jpg', 'ara', 3, 1, 1, '2018-10-01 10:55:35', '2018-10-10 12:17:25'),
+(4, 32232, 'Be habby', 'ساره', 'sara', 'sara', '<p>saaaaaaa</p>', '<p>saaaaaaaa</p>', 123, 123, 'sddsad dsad', 120, '4_product.jpg', 'mhl-bshry-sar', 3, 1, 1, '2018-10-01 11:52:04', '2018-10-10 12:16:58'),
+(5, 32232, 'product1', 'product1', 'product1', 'product1', '<p>product1</p>', '<p>product1</p>', 20, 0, 'product1', 23, '5_product.jpg', 'product1', 3, 1, 2, '2018-10-10 12:11:43', '2018-10-10 12:16:45');
 
 -- --------------------------------------------------------
 
@@ -383,6 +464,13 @@ CREATE TABLE `services` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`id`, `title_en`, `title_ar`, `intro_ar`, `intro_en`, `details_en`, `details_ar`, `slug`, `image`, `created_at`, `updated_at`) VALUES
+(4, 'saa', 'ass', 'sara', 'sara', '<p>sad<strong>sdasd</strong></p>', '<p>sdddddddddf</p>', 'ass', '4service.jpg', '2018-10-02 09:11:13', '2018-10-02 09:18:17');
 
 -- --------------------------------------------------------
 
@@ -407,6 +495,13 @@ CREATE TABLE `settings` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `phone`, `mobile2`, `mobile`, `email`, `supportEmail`, `facebook`, `instagram`, `twitter`, `youtube`, `linkedin`, `worktime`, `created_at`, `updated_at`) VALUES
+(1, '+966 50 666 5468', '+966 13 840 8585', '01211309733', 'sara@inc-house.com', 'info@raya-adv.com', 'https://www.facebook.com/raya.alrwad.agency/', 'https://www.instagram.com/raya.rwd/', 'https://web.whatsapp.com/', NULL, NULL, NULL, NULL, '2018-10-09 10:38:24');
+
 -- --------------------------------------------------------
 
 --
@@ -423,6 +518,14 @@ CREATE TABLE `slideshows` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `slideshows`
+--
+
+INSERT INTO `slideshows` (`id`, `title_en`, `title_ar`, `img`, `link`, `status`, `created_at`, `updated_at`) VALUES
+(2, 'Amazing offers', 'عروض رائعة', '2_slideshow.jpg', '#', 1, '2018-10-10 10:51:35', '2018-10-10 10:51:36'),
+(3, 'Amazing Collection', 'عروض رائعة', '3_slideshow.jpg', '#', 1, '2018-10-10 10:53:00', '2018-10-10 10:53:01');
 
 -- --------------------------------------------------------
 
@@ -455,7 +558,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstName`, `lastName`, `email`, `password`, `mobile1`, `mobile2`, `landline`, `address`, `city1`, `address2`, `city2`, `status`, `remember_token`, `country_id`, `created_at`, `updated_at`) VALUES
-(1, 'sara', 'adel', 'sara@inc-house.com', '$2y$10$EWSOPobN1sTlsMaID0tQL.KJ.6DEuR2PWiITn/7NS6KydLNjpr.sW', '01211309733', NULL, NULL, 'Al-Anood District, King Soud St.Klaiby Building Dammam, Saudi Arabia', 'dammam', NULL, NULL, 1, NULL, 1, '2018-09-30 10:33:27', '2018-09-30 10:33:27');
+(1, 'sara', 'adel', 'sara@inc-house.com', '$2y$10$EWSOPobN1sTlsMaID0tQL.KJ.6DEuR2PWiITn/7NS6KydLNjpr.sW', '01211309733', NULL, NULL, 'Al-Anood District, King Soud St.Klaiby Building Dammam, Saudi Arabia', 'dammam', NULL, NULL, 1, 'V8P3qZwbFbFuKygzCsBvoUdVBB2KXdhX23JF5RqzLymdm1ahoSPrwRJLtkAK', 1, '2018-09-30 10:33:27', '2018-09-30 10:33:27'),
+(2, 'sara', 'adel', 'samaa4654@gmail.com', '$2y$10$CeRLC9Cu/9GZw5Eh6lLyu..x7oAJb.88TPQxyq0bVPC8LqhEMo6a.', '01211309733', NULL, NULL, 'Al-Anood District, King Soud St.Klaiby Building Dammam, Saudi Arabia', 'dammam', NULL, NULL, 0, NULL, 1, '2018-10-02 11:08:37', '2018-10-02 11:56:13');
 
 --
 -- Indexes for dumped tables
@@ -605,55 +709,55 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `branches`
 --
 ALTER TABLE `branches`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `coupons`
 --
 ALTER TABLE `coupons`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `currencies`
 --
 ALTER TABLE `currencies`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `features`
 --
 ALTER TABLE `features`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `features_detailes`
 --
 ALTER TABLE `features_detailes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `feature_product`
 --
 ALTER TABLE `feature_product`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -665,55 +769,55 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `opinions`
 --
 ALTER TABLE `opinions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `slideshows`
 --
 ALTER TABLE `slideshows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

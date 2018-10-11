@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\frontend;
 
 use App\Product;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProductDetails extends Controller
+class ProductDetailsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +16,7 @@ class ProductDetails extends Controller
     public function index()
     {
         //
+        return view('front.productDetails');
     }
 
     /**

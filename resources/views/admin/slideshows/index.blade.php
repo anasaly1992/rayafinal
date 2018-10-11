@@ -30,6 +30,8 @@
     <tr>     
     <th>#</th>
     <th>Title English</th>
+    <th>introduction English</th>
+    <th>details English</th>
     <th>image</th>
     <th>link</th>
     <th>status</th>
@@ -43,6 +45,8 @@
    <tr>
   <td>{{$x++}} </td>
   <td>{{$slideshow->title_en}}</td>
+  <td>{{$slideshow->intro_en}}</td>
+  <td>{{$slideshow->intro_ar}}</td>
   <td><img width="70px"  height="70px" class="img-circle" src="{{asset('upload/slideshow/'.$slideshow->img)}}"></td>
   <td>{{$slideshow->link}}</td>
   @if($slideshow->status==1)

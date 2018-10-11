@@ -6,17 +6,19 @@
             <div id="ensign-nivoslider" class="slides">
                 @foreach($sliders as $slider)
               @php $flag = 1 ;
+              
               $imagePath =      '/upload/slideshow/'.$slider->img ; @endphp
                 <img src="{{asset($imagePath)}}" alt="" title="#slider-direction-{{ $flag }}" />
                 @php
                 $flag++  ;
                 @endphp
                 @if($flag == 3 )
-                 @php
+                @php
                 $flag = 1 ;
                 @endphp 
                 @endif 
                 @endforeach
+                
             </div>
             <!-- direction 1 -->
               @foreach($sliders as $slider)

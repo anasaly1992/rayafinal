@@ -27,10 +27,9 @@
                 <div class="container">
                     <div class="slider-content t-lfl s-tb slider-{{$flag}}">
                         <div class="title-container s-tb-c title-compress">
-                            <h1 class="title1">{{$slider->title_en}}</h1>
-                           <h2 class="title2">new arrivals !</h2>
-                            <h3 class="title3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt <br> doloremque maiores odit
-                                perferendis unde et</h3> 
+                            <h1 class="title1">{{ $slider->title_en }}</h1>
+                           <h2 class="title2">{{ $slider->intro_en }}</h2>
+                            <h3 class="title3">{{ $slider->details_en }}</h3> 
                             <a class="btn-hover" href="{{$slider->link}}">shop now</a>
                         </div>
                     </div>
@@ -156,9 +155,9 @@
                         </div>
                     </div>
                     @endforeach
-
+  
                     
-                  
+                
                    
     
                     </div>

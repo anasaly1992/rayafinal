@@ -442,7 +442,7 @@
     @endphp
 @foreach($products as $product)
     <!-- quick view start -->
-    <div class="quick-view{{$product->id}} modal fade in" id="quick-view{{$product->id}}">
+    <div class="quick-view modal fade in" id="quick-view{{$product->id}}">
         <div class="container">
             <div class="row">
                 <div id="view-gallery">
@@ -465,7 +465,7 @@
                                                         @endphp
                                                         @foreach($images as $image)
                                                         @php
-                                                        $imagePath = 'upload/product/other'.$image->img_name ;
+                                                        $imagePath = 'upload/product/other/'.$image->img_name ;
                                                          @endphp
                                                         <div class="tab-pane  fade in <?php if($flag ==0) echo 'active'; ?>" id="{{$image->id}}">
                                                             <img src="{{asset($imagePath)}}" alt="" />
@@ -482,7 +482,7 @@
                                                          @php
                                                          $imagePath = 'upload/product/other/'.$image->img_name ;
                                                          @endphp
-                                                                <li><a data-toggle="tab" href="#{{$image->id}}"> <img src="{{asset($imagePath)}}" alt="quick view" /> </a></li>
+                                                                <li><a data-toggle="tab" href="#{{$image->id}}"> <img src="{{asset($imagePath)}}" alt="quick view" height="50px" width="50px"/> </a></li>
                                                          @endforeach
                                                             </ul>
                                                         </div>
@@ -503,30 +503,34 @@
                                                             <a href="#">Add review</a>
                                                         </div>
                                                         <div class="amount">
-                                                            <h4>$65.00</h4>
+                                                            <h4>{{$product->price.$currency->name_en }}</h4>
                                                         </div>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                            industry. Lorem Ipsum has beenin the stand ard dummy text ever
-                                                            since the 1500s, when an unknown printer took a galley of type
-                                                            and scrames bled it make a type specimen book.</p>
+                                                        <p>
+                                                           {{ $product->info_en }}
+                                                        </p>
                                                         <div class="row m-p-b">
                                                             <div class="col-sm-12 col-md-6">
                                                                 <div class="por-dse responsive-strok clearfix">
                                                                     <ul>
-                                                                        <li><span>Availability</span><strong>:</strong> In stock</li>
-                                                                        <li><span>Condition</span><strong>:</strong> New product</li>
-                                                                        <li><span>Category</span><strong>:</strong> <a href="#">Men</a>                                                                            <a href="#">Fashion</a> <a href="#">Shirt</a></li>
+                                                                        <li><span>Availability</span><strong>:</strong> @if($product->quantity>0) In stock @else Not In stock  @endif</li>
+                                                                     <!--   <li><span>Condition</span><strong>:</strong> New product</li> -->
+                                                                        <li><span>Category</span><strong>:</strong> <a href="#">{{ $product->category->name_en }}</a>                                                                          
+                                                                            </li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
+                                                            
                                                             <div class="col-sm-12 col-md-6">
                                                                 <div class="por-dse color">
                                                                     <ul>
-                                                                        <li><span>color</span><strong>:</strong> <a href="#">Red</a>                                                                            <a href="#">Green</a> <a href="#">Blue</a>
-                                                                            <a href="#">Orange</a>
+                                                                        <li><span>color</span><strong>:</strong> <a href="#">Red</a>                                                                           
+                                                                     <a href="#">Green</a> <a href="#">Blue</a>
+                                                                       <a href="#">Orange</a>
                                                                         </li>
-                                                                        <li><span>size</span><strong>:</strong> <a href="#">SL</a>                                                                            <a href="#">SX</a> <a href="#">M</a> <a href="#">XL</a></li>
-                                                                        <li><span>tag</span><strong>:</strong> <a href="#">Men</a>                                                                            <a href="#">Fashion</a> <a href="#">Shirt</a></li>
+                                                                        <li><span>size</span><strong>:</strong> <a href="#">SL</a>                                                                            
+                                                                        <a href="#">SX</a> <a href="#">M</a> <a href="#">XL</a></li>
+                                                                        <li><span>tag</span><strong>:</strong> <a href="#">Men</a>                                                                        
+                                                                         <a href="#">Fashion</a> <a href="#">Shirt</a></li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -539,24 +543,32 @@
                                                                             <li class="share-btn clearfix"><span>quantity</span>
                                                                                 <input class="input-text qty" name="qty" maxlength="12" value="1" title="Qty" type="text">
                                                                             </li>
-                                                                            <li class="share-btn clearfix"><span>share</span>
-                                                                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                                                            <li class="share-btn clearfix">
+                                                                            <!--    <a href="#"><i class="fa fa-facebook"></i></a>
                                                                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                                                                 <a href="#"><i class="fa fa-google-plus"></i></a>
                                                                                 <a href="#"><i class="fa fa-linkedin"></i></a>
-                                                                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                                                            </li>
+                                                                                <a href="#"><i class="fa fa-instagram"></i></a> -->
+                                                                          
+                                                                 
+                                                                                <?php  echo Share::page('http://jorenvanhocht.be',$product->name_en)
+                                                                                ->facebook()
+                                                                                ->twitter()
+                                                                                ->googlePlus()
+                                                                                ->linkedin();; ?>
+                                                                        </li>
                                                                         </ul>
+         
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-12 col-md-6">
-                                                                    <div class="por-dse clearfix responsive-othre">
+                                                                   <!-- <div class="por-dse clearfix responsive-othre">
                                                                         <ul class="other-btn">
                                                                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                                                             <li><a href="#"><i class="fa fa-refresh"></i></a></li>
                                                                             <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
                                                                         </ul>
-                                                                    </div>
+                                                                    </div> -->
                                                                     <div class="por-dse add-to">
                                                                         <a href="#">add to cart</a>
                                                                     </div>
@@ -593,6 +605,11 @@
     <script src="{{asset('assets/js/plugins.js')}}"></script>
     <script src="{{asset('assets/js/main.js')}}"></script>
     <!-- <script src="assets/js/main-ar.js"></script> -->
+
+    <!-- share script -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+     <script src="{{ asset('js/share.js') }}"></script>
+
 </body>
 
 </html>

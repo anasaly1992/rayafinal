@@ -70,7 +70,7 @@
 
   <td> 
   <form class="delete" action="{{ route('products.destroy',$product->id) }}" method="POST">
-  <!-- <a class="btn btn-info" href="{!! route('products.show',$product->id) !!}">Show</a> -->
+  <a class="fa fa-tv"  style="font-size:20px" href="{{ route('products.show',$product->id) }}"></a>
   <a class="fa fa-edit "  style="font-size:16px" href="{{ route('products.edit',$product->id) }}"></a>
    <input type="hidden" name="_method" value="DELETE">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />

@@ -503,7 +503,7 @@
                                                             <a href="#">Add review</a>
                                                         </div> -->
                                                         <div class="amount">
-                                                            <h4>{{$product->price.$currency->name_en }}</h4>
+                                                            <h4>{{$product->price }}</h4>
                                                         </div>
                                                         <p>
                                                            {{ $product->info_en }}

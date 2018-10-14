@@ -32,7 +32,10 @@ class HomeController extends Controller
        $settings = Setting::find(1);
        $categories = Category::where('status',1)->get();
        $products = Product::where('status',1)->get();
+       $latest_products = Product::orderBy('id', 'desc')->take(10)->get();
+
+       
        $currency = Currency::find(2) ;
-        return view('home',compact('sliders','settings','categories','products','currency'));
+        return view('home',compact('sliders','settings','categories','products','currency','latest_products'));
     }
 }

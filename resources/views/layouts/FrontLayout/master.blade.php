@@ -493,7 +493,7 @@
                                                 <div class="quick-right">
                                                     <div class="quick-right-text">
                                                         <h3><strong>{{$product->name_en}}</strong></h3>
-                                                        <div class="rating">
+                                                     <!--   <div class="rating">
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
@@ -501,7 +501,7 @@
                                                             <i class="fa fa-star-o"></i>
                                                             <a href="#">06 Review</a>
                                                             <a href="#">Add review</a>
-                                                        </div>
+                                                        </div> -->
                                                         <div class="amount">
                                                             <h4>{{$product->price.$currency->name_en }}</h4>
                                                         </div>
@@ -533,7 +533,7 @@
                                                                          <a href="#">Fashion</a> <a href="#">Shirt</a></li>
                                                                     </ul>
                                                                 </div>
-                                                            </div>
+                                                            </div> 
                                                         </div>
                                                         <div class="dse-btn">
                                                             <div class="row">

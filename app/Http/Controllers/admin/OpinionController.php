@@ -70,7 +70,8 @@ class OpinionController extends Controller
              Opinion::where('id',$id)->update(['image' => $image_name]);
            
             }
-
+           return redirect()->route('opinions.index')
+             ->with('success','opinion Added successfully');
     }
 
     /**
@@ -93,6 +94,7 @@ class OpinionController extends Controller
     public function edit(Opinion $opinion)
     {
         //
+          return view('admin.opinions.edit', compact('opinion'));
     }
 
     /**
@@ -105,6 +107,35 @@ class OpinionController extends Controller
     public function update(Request $request, Opinion $opinion)
     {
         //
+           //
+           request()->validate([         
+            'name_en' => 'nullable',
+            'name_ar' => 'required',
+            'title_ar' => 'required',
+            'title_en' => 'nullable',
+            'position_ar' => 'required',
+            'position_en' => 'nullable',
+            'image'=>'nullable|image:jpg,png|max:5000'
+            ]);
+
+     $opinion->update([
+            'name_en' => $request->input('name_en'),
+            'name_ar' => $request->input('name_ar'),
+            'title_ar' =>$request->input('title_ar') ,
+            'title_en' =>$request->input('title_en') ,
+            'position_ar' => $request->input('position_ar'),
+            'position_en' => $request->input('position_en'),
+        ]);
+            $id = $opinion->id;
+           if($main_image = $request->file('image')){
+            $extension=$main_image->getClientOriginalExtension();
+            $image_name = $id.'_opinion'.'.'.$extension;
+            $main_image->move(public_path('/upload/opinion'), $image_name);
+             Opinion::where('id',$id)->update(['image' => $image_name]);
+           
+            }
+             return redirect()->route('opinions.index')
+             ->with('success','opinion Updated successfully');
     }
 
     /**
@@ -116,5 +147,12 @@ class OpinionController extends Controller
     public function destroy(Opinion $opinion)
     {
         //
+          if($opinion->img_main != null){
+       $image_path = public_path().'/upload/opinion/'.$opinion->image;
+       unlink($image_path);
+       }
+        $opinion->delete();
+         return redirect()->route('opinions.index')
+             ->with('success','opinion Deleted successfully');
     }
 }

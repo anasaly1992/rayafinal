@@ -4,10 +4,10 @@
 <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Add New label</h2>
+                <h2>Add New opinion</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary fa fa-arrow-left" href="{{ route('labels.index') }}"> Back</a>
+                <a class="btn btn-primary fa fa-arrow-left" href="{{ route('opinions.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -26,10 +26,10 @@
 
     <div class="box box-info" style="padding-top: 10px;">
   
-    <form class="form-horizontal" action="{{route('labels.store')}}" method="post" enctype="multipart/form-data">
+    <form class="form-horizontal" action="{{route('opinions.store')}}" method="post" enctype="multipart/form-data">
         @csrf
 
-               @include('admin.labels.form')
+               @include('admin.opinions.form')
                <div class="box-footer">
                <button type="submit" class="btn btn-primary">Save</button>
                </div>

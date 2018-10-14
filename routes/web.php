@@ -33,25 +33,32 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'is.admin'], function () {
     Route::get('/admin', 'admin\AdminController@index');
-    Route::get('admin/opinions', 'admin\OpinionController@index');
-    //users
-    Route::resource('admin/users', 'admin\UserController');
+
+   
     // Contact
     Route::resource('admin/contacts', 'admin\ContactController');
-    //currencies
-    Route::resource('admin/currencies', 'admin\CurrencyController');
-    //slideshow
-    Route::resource('admin/slideshow', 'admin\SlideShowController');
-    //Country
-    Route::resource('admin/countries', 'admin\CountryController');
-    //category
-    Route::resource('admin/categories', 'admin\CategoryController');
-    //slideshow
-    Route::resource('admin/slideshows', 'admin\SlideshowController');
-    //products
-    Route::resource('admin/products', 'admin\ProductController');
-    //feature
-    Route::resource('admin/features', 'admin\FeatureController');
+ 
+  
+   
+    
+ 
+ Route::resource('admin/opinions', 'admin\OpinionController');
+ //users
+ Route::resource('admin/users','admin\UserController');
+  //currencies
+  Route::resource('admin/currencies','admin\CurrencyController');
+  //slideshow
+  Route::resource('admin/slideshow','admin\SlideShowController');
+  //Country
+  Route::resource('admin/countries','admin\CountryController');
+  //category
+  Route::resource('admin/categories','admin\CategoryController');
+  //slideshow
+  Route::resource('admin/slideshows','admin\SlideshowController');
+  //products
+  Route::resource('admin/products','admin\ProductController');
+//feature
+  Route::resource('admin/features','admin\FeatureController');
     //feature details
     Route::resource('admin/featuredetails', 'admin\FeatureDetailsController');
     //product features

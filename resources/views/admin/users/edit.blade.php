@@ -221,9 +221,9 @@
                         <div class="form-group col-md-6">
                         <label for="status" class=" col-form-label text-md-right">{{ __('status') }}</label>
                         <select name="status" class="form-control">
-                        <option value="0">User</option>                          
-                        <option value="1">Admin</option> 
-                        <option value="2">Editer</option>                                
+                        <option value="0" {{ $user->status == 0? ' selected="selected"' : ''}}>User</option>                          
+                        <option value="1" {{ $user->status == 1? ' selected="selected"' : ''}}>Admin</option> 
+                        <option value="2" {{ $user->status == 2? ' selected="selected"' : ''}}>Editer</option>                                
                         </select>
                       </div>
      </div>

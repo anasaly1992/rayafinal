@@ -194,7 +194,7 @@
                                                 <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
                                                     <i class="pe-7s-like"></i>
                                                 </a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
+                                                <a href="#" data-toggle="modal" data-target="#quick-view{{$product->id}}" title="Quick View">
                                                     <i class="pe-7s-look"></i>
                                                 </a>
                                             </div>

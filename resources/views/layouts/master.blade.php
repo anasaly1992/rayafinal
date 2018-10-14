@@ -124,7 +124,7 @@
         <li><a href="{{url('admin/countries')}}"><i class="fa fa-codiepie"></i> <span>Countries</span></a></li>
         <li><a href="{{url('admin/services')}}"><i class="fa fa-codiepie"></i> <span>Services</span></a></li>
         <li><a href="{{url('admin/branches')}}"><i class="fa fa-codiepie"></i> <span>Branches</span></a></li>
-
+        <li><a href="{{url('admin/opinions')}}"><i class="fa fa-codiepie"></i> <span>Opinion</span></a></li>
         <li><a href="{{url('admin/pages')}}"><i class="fa fa-codiepie"></i> <span>Pages</span></a></li>
         <li class=" treeview" >
         <a href="#">

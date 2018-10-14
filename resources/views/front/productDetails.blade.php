@@ -182,7 +182,7 @@
                                     <div class="single-shop">
                                         <div class="shop-img">
                                          <a href="#">
-                                          <img src="{!!asset('upload/product/'.$product->img_main)!!}" alt="{{$product->name_en}}" />
+                                          <img src="{!! asset('upload/product/'.$product->img_main)"alt="$product->name_en !!}" />
                                             </a>
                                             <div class="price-up-down">
                                                 <span class="sale-new">new</span>

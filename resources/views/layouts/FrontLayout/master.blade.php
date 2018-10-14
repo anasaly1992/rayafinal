@@ -15,19 +15,24 @@
     
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     
-    <link rel="stylesheet" href="{{asset('assets/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
+    
     <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/pe-icon-7-stroke.css')}}">
     <link rel="stylesheet" href="{{asset('assets/lib/css/nivo-slider.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('assets/lib/css/preview.css')}}" type="text/css" media="screen" />
     <link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.css') }}">
+    
     <link rel="stylesheet" href="{{asset('assets/css/meanmenu.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/bundle.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <!-- <link rel="stylesheet" href="assets/css/style-ar.css"> -->
     <!-- <link rel="stylesheet" href="assets/css/bootstrap.rtl.full.min.css"> -->
     <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
+   
+
     <script src="{{asset('assets/js/vendor/modernizr-2.8.3.min.js')}}"></script>
 </head>
 

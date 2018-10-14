@@ -313,10 +313,12 @@
                                 <p>
                                     <i class="pe-7s-map-marker"> </i>
                                            <span>
-                                            184 Main Rd E, St Albans
-                                            <br>
-                                            <span class="location">VIC 3021, Australia</span>
-                                    </span>
+                                               @php 
+                                               $settings = App\Setting::find(1);
+                                             echo $settings->address_en;
+                                               @endphp   
+
+                                           </span>
                                 </p>
                                 <p>
                                     <i class="pe-7s-mail"></i>
@@ -326,16 +328,16 @@
                                 </p>
                                 <p>
                                     <i class="pe-7s-call"></i>
-                                    <span>+001 2233 456 </span>
+                                    <span>{{ $settings->mobile  }} </span>
                                 </p>
                             </div>
                             <div class="footer-social">
                                 <ul>
-                                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                    <li><a href="{{ $settings->facebook  }}"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="{{ $settings->twitter  }}"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="{{ $settings->google  }}"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="{{ $settings->instagram  }}"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="{{ $settings->linkedin  }}"><i class="fa fa-linkedin"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -347,12 +349,15 @@
                             </div>
                             <div class="widget-text">
                                 <ul>
-                                    <li><a href="#"> Clothing</a></li>
-                                    <li><a href="#">Shoes </a></li>
-                                    <li><a href="#">bags </a></li>
-                                    <li><a href="#">Watches </a></li>
-                                    <li><a href="#">Jewelry </a></li>
-                                    <li><a href="#"> Clothing</a></li>
+                                    @php 
+                                    $categories = App\Category::orderBy('id', 'desc')->take(6)->get();
+                                    @endphp
+                                    @foreach ($categories as $category )
+                                        
+                                   
+                               
+                                    <li><a href="#"> {{ $category->name_en }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -381,12 +386,11 @@
                             </div>
                             <div class="widget-text">
                                 <ul>
-                                    <li><a href="#">Login </a></li>
-                                    <li><a href="#">register </a></li>
+                                    <li><a href="{{ route('login')  }}">Login </a></li>
+                                    <li><a href="{{ route('register')  }}">register </a></li>
                                     <li><a href="#">Wishlist </a></li>
                                     <li><a href="#">My Cart</a></li>
                                     <li><a href="#">Checkout </a></li>
-                                    <li><a href="#">register </a></li>
                                 </ul>
                             </div>
                         </div>

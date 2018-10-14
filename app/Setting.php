@@ -9,6 +9,6 @@ class Setting extends Model
     //
     protected $fillable=[ 
         'phone', 'mobile2', 'mobile', 'email', 'supportEmail', 
-        'facebook', 'instagram', 'twitter', 'youtube', 'linkedin', 'worktime'
+        'facebook', 'instagram', 'twitter', 'youtube', 'linkedin', 'worktime','address_ar','address_en'
     ];
 }

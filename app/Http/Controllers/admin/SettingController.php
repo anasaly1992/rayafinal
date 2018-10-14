@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Setting;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class SettingController extends Controller
 {
@@ -15,11 +15,11 @@ class SettingController extends Controller
      */
     public function index()
     {
-       
-        $x=1;
-        $settings=Setting::all();
-        return view('admin.settings.index',compact('settings','x'))->
-        with('i',(request()->input('page',1)-1)*5);
+
+        $x = 1;
+        $settings = Setting::all();
+        return view('admin.settings.index', compact('settings', 'x'))->
+            with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -32,8 +32,6 @@ class SettingController extends Controller
         //
     }
 
-
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -43,7 +41,7 @@ class SettingController extends Controller
     public function edit(Setting $setting)
     {
         //
-       return view('admin.settings.edit', compact('setting'));
+        return view('admin.settings.edit', compact('setting'));
 
     }
 
@@ -56,7 +54,7 @@ class SettingController extends Controller
      */
     public function update(Request $request, Setting $setting)
     {
-        // // 'phone', 'mobile2', 'mobile', 'email', 'supportEmail', 
+        // // 'phone', 'mobile2', 'mobile', 'email', 'supportEmail',
         // 'facebook', 'instagram', 'twitter', 'youtube', 'linkedin', 'worktime'
 
         //  request()->validate([
@@ -73,24 +71,25 @@ class SettingController extends Controller
         //     'worktime'=>'required',
 
         // ]);
-           $setting->update([
-            'phone'=>$request->input('phone'),
-            'mobile2'=>$request->input('mobile2'),
-            'mobile'=>$request->input('mobile'),
-            'email'=>$request->input('email'),
-            'supportEmail'=>$request->input('supportEmail'),
-            'facebook'=>$request->input('facebook'),
-            'instagram'=>$request->input('instagram'),
-            'twitter'=>$request->input('twitter'),
-            'youtube'=>$request->input('youtube'),
-            'linkedin'=>$request->input('linkedin'),
-            'worktime'=>$request->input('worktime'),
+        $setting->update([
+            'phone' => $request->input('phone'),
+            'mobile2' => $request->input('mobile2'),
+            'mobile' => $request->input('mobile'),
+            'email' => $request->input('email'),
+            'supportEmail' => $request->input('supportEmail'),
+            'facebook' => $request->input('facebook'),
+            'instagram' => $request->input('instagram'),
+            'twitter' => $request->input('twitter'),
+            'youtube' => $request->input('youtube'),
+            'linkedin' => $request->input('linkedin'),
+            'worktime' => $request->input('worktime'),
+            'address_en' => $request->input('address_en'),
+            'address_ar' => $request->input('address_ar'),
 
-           ]);
-     return redirect()->route('settings.index')
-             ->with('success','setting Updated successfully');
+        ]);
+        return redirect()->route('settings.index')
+            ->with('success', 'setting Updated successfully');
 
     }
-
 
 }

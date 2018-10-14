@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Slideshow;
-use App\Setting;
 use App\Category;
-use App\Product;
 use App\Currency;
+use App\Opinion;
+use App\Product;
+use App\Setting;
+use App\Slideshow;
 
 class HomeController extends Controller
 {
@@ -28,11 +28,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-       $sliders = Slideshow::where('status',1)->get();
-       $settings = Setting::find(1);
-       $categories = Category::where('status',1)->get();
-       $products = Product::where('status',1)->get();
-       $currency = Currency::find(2) ;
-        return view('home',compact('sliders','settings','categories','products','currency'));
+        $sliders = Slideshow::where('status', 1)->get();
+        $settings = Setting::find(1);
+        $categories = Category::where('status', 1)->get();
+        $products = Product::where('status', 1)->get();
+        $latest_products = Product::orderBy('id', 'desc')->take(10)->get();
+        $opinions = Opinion::all();
+
+        $currency = Currency::find(2);
+        return view('home', compact('sliders', 'settings', 'categories', 'products', 'currency', 'latest_products','opinions'));
     }
 }

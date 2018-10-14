@@ -77,6 +77,10 @@ Route::group(['middleware' => 'is.admin'], function () {
    //about
    Route::get('about','PageController@about')->name('about');
    Route::resource('product_details','frontend\ProductDetailsController');
+   //services
+   Route::get('services','frontend\ServicesController@index');
+   //service details
+   Route::get('servicedetails/{$slug}','frontend\ServicesController@details');
    //contact
    Route::get('contact','PageController@contact')->name('contact');
    //charge and terms_conditions

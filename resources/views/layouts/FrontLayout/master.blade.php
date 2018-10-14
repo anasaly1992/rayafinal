@@ -297,6 +297,28 @@
      </section>
     <!-- end Main -->
 
+
+
+    <!-- subscribe area start -->
+    <div class="subscribe-area gray-bg">
+        <div class="container">
+            <div class="subscribe-bg ptb-80">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 ">
+                        <div class="subscribe-from text-center">
+                            <h3>subscribe to our newsletter</h3>
+                            <form action="#">
+                                <input placeholder="Enter your Email address" type="email">
+                                <button type="submit">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- subscribe area end -->
+    
       <!-- footer area start -->
     <footer class="footer-area">
         <div class="container">
@@ -313,10 +335,12 @@
                                 <p>
                                     <i class="pe-7s-map-marker"> </i>
                                            <span>
-                                            184 Main Rd E, St Albans
-                                            <br>
-                                            <span class="location">VIC 3021, Australia</span>
-                                    </span>
+                                               @php 
+                                               $settings = App\Setting::find(1);
+                                             echo $settings->address_en;
+                                               @endphp   
+
+                                           </span>
                                 </p>
                                 <p>
                                     <i class="pe-7s-mail"></i>
@@ -326,16 +350,16 @@
                                 </p>
                                 <p>
                                     <i class="pe-7s-call"></i>
-                                    <span>+001 2233 456 </span>
+                                    <span>{{ $settings->mobile  }} </span>
                                 </p>
                             </div>
                             <div class="footer-social">
                                 <ul>
-                                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                    <li><a href="{{ $settings->facebook  }}"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="{{ $settings->twitter  }}"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="{{ $settings->google  }}"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="{{ $settings->instagram  }}"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="{{ $settings->linkedin  }}"><i class="fa fa-linkedin"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -347,12 +371,15 @@
                             </div>
                             <div class="widget-text">
                                 <ul>
-                                    <li><a href="#"> Clothing</a></li>
-                                    <li><a href="#">Shoes </a></li>
-                                    <li><a href="#">bags </a></li>
-                                    <li><a href="#">Watches </a></li>
-                                    <li><a href="#">Jewelry </a></li>
-                                    <li><a href="#"> Clothing</a></li>
+                                    @php 
+                                    $categories = App\Category::orderBy('id', 'desc')->take(6)->get();
+                                    @endphp
+                                    @foreach ($categories as $category )
+                                        
+                                   
+                               
+                                    <li><a href="#"> {{ $category->name_en }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -381,12 +408,11 @@
                             </div>
                             <div class="widget-text">
                                 <ul>
-                                    <li><a href="#">Login </a></li>
-                                    <li><a href="#">register </a></li>
+                                    <li><a href="{{ route('login')  }}">Login </a></li>
+                                    <li><a href="{{ route('register')  }}">register </a></li>
                                     <li><a href="#">Wishlist </a></li>
                                     <li><a href="#">My Cart</a></li>
                                     <li><a href="#">Checkout </a></li>
-                                    <li><a href="#">register </a></li>
                                 </ul>
                             </div>
                         </div>
@@ -493,7 +519,7 @@
                                                 <div class="quick-right">
                                                     <div class="quick-right-text">
                                                         <h3><strong>{{$product->name_en}}</strong></h3>
-                                                        <div class="rating">
+                                                     <!--   <div class="rating">
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
@@ -501,9 +527,9 @@
                                                             <i class="fa fa-star-o"></i>
                                                             <a href="#">06 Review</a>
                                                             <a href="#">Add review</a>
-                                                        </div>
+                                                        </div> -->
                                                         <div class="amount">
-                                                            <h4>{{$product->price.$currency->name_en }}</h4>
+                                                            <h4>{{$product->price }}</h4>
                                                         </div>
                                                         <p>
                                                            {{ $product->info_en }}
@@ -533,7 +559,7 @@
                                                                          <a href="#">Fashion</a> <a href="#">Shirt</a></li>
                                                                     </ul>
                                                                 </div>
-                                                            </div>
+                                                            </div> 
                                                         </div>
                                                         <div class="dse-btn">
                                                             <div class="row">

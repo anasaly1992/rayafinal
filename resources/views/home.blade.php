@@ -195,14 +195,20 @@
             </div>
             <div class="row">
                 <div class="special-slider-active owl-carousel">
+                 @foreach ($latest_products as $product )
+                     
                     <div class="single-special-slider">
                         <div class="col-lg-12 col-md-12 col-xs-12">
                             <div class="single-shop">
                                 <div class="shop-img">
-                                    <a href="#"><img src="assets/img/shop/equal/1.jpg" alt="" /></a>
+                                    <a href="#"><img src="{!! asset('upload/product/'.$product->img_main) !!}" alt="" /></a>
+
+                                    @if($product->price_after < $product->price )
                                     <div class="price-up-down">
-                                        <span class="sale-new">new</span>
+                                        <span class="sale-new">sale</span>
                                     </div>
+                                    @endif
+
                                     <div class="button-group">
                                         <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view{{$product->id}}">
                                             <i class="pe-7s-cart"></i>
@@ -218,115 +224,18 @@
                                 <div class="shop-text-all">
                                     <div class="title-color fix">
                                         <div class="shop-title f-left">
-                                            <h3><a href="#">{{$product->name_en}}}</a></h3>
+                                            <h3><a href="{{ route('product_details.show',$product->id) }}">{{$product->name_en}}</a></h3>
                                         </div>
                                         <div class="price f-right">
-                                            <span class="new">$120.00</span>
+                                            <span class="new">{{ $currency->name_en.$product->price }}</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="single-special-slider">
-                        <div class="col-lg-12 col-md-12 col-xs-12">
-                            <div class="single-shop">
-                                <div class="shop-img">
-                                    <a href="#"><img src="assets/img/shop/equal/2.jpg" alt="" /></a>
-                                    <div class="price-up-down">
-                                        <span class="sale-new">new</span>
-                                    </div>
-                                    <div class="button-group">
-                                        <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                            <i class="pe-7s-cart"></i>
-                                        </a>
-                                        <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                            <i class="pe-7s-like"></i>
-                                        </a>
-                                        <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                            <i class="pe-7s-look"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="shop-text-all">
-                                    <div class="title-color fix">
-                                        <div class="shop-title f-left">
-                                            <h3><a href="#">Handbag</a></h3>
-                                        </div>
-                                        <div class="price f-right">
-                                            <span class="new">$670.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-special-slider">
-                        <div class="col-lg-12 col-md-12 col-xs-12">
-                            <div class="single-shop">
-                                <div class="shop-img">
-                                    <a href="#"><img src="assets/img/shop/equal/3.jpg" alt="" /></a>
-                                    <div class="price-up-down">
-                                        <span class="sale-new">new</span>
-                                    </div>
-                                    <div class="button-group">
-                                        <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                            <i class="pe-7s-cart"></i>
-                                        </a>
-                                        <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                            <i class="pe-7s-like"></i>
-                                        </a>
-                                        <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                            <i class="pe-7s-look"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="shop-text-all">
-                                    <div class="title-color fix">
-                                        <div class="shop-title f-left">
-                                            <h3><a href="#">Perfume</a></h3>
-                                        </div>
-                                        <div class="price f-right">
-                                            <span class="new">$340.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-special-slider">
-                        <div class="col-lg-12 col-md-12 col-xs-12">
-                            <div class="single-shop">
-                                <div class="shop-img">
-                                    <a href="#"><img src="assets/img/shop/equal/4.jpg" alt="" /></a>
-                                    <div class="price-up-down">
-                                        <span class="sale-new">new</span>
-                                    </div>
-                                    <div class="button-group">
-                                        <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                            <i class="pe-7s-cart"></i>
-                                        </a>
-                                        <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                            <i class="pe-7s-like"></i>
-                                        </a>
-                                        <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                            <i class="pe-7s-look"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="shop-text-all">
-                                    <div class="title-color fix">
-                                        <div class="shop-title f-left">
-                                            <h3><a href="#">Shirt</a></h3>
-                                        </div>
-                                        <div class="price f-right">
-                                            <span class="new">$230.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -337,55 +246,27 @@
      <div class="special-offer ptb-100">
         <div class="container">
             <div class="section-title text-center mb-50">
-                <h2>New Collections <i class="fa fa-shopping-cart"></i></h2>
+                <h2>Client Opinion <i class="fa fa-shopping-cart"></i></h2>
             </div>
             <div class="row">
                 <div class="special-slider-active owl-carousel">
+                    @foreach ( $opinions as $opinion)
+                        
+                   
                     <div class="single-special-slider">
                         <div class="col-lg-12 col-md-12 col-xs-12">
                             
                                 <div class="member">
-                                    <div class="img"><img src="{{asset('assets/img/team/pirson.jpg')}}" alt="pirson"></div>
-                                    <h4>John Doe</h4>
-                                    <p>اLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
+                                    <div class="img"><img src="{!! asset('upload/opinion/'.$opinion->image) !!}" alt="{{ $opinion->title_en  }}"></div>
+                                    <h4>{{ $opinion->name_en  }}</h4>
+                                    <p>{!! $opinion->title_en  !!} </p>
                                   
                                   </div>
                                 
                         </div>
                     </div>
-                    <div class="single-special-slider">
-                        <div class="col-lg-12 col-md-12 col-xs-12">
-                            <div class="member">
-                                <div class="img"><img src="{{asset('assets/img/team/pirson.jpg')}}" alt="pirson"></div>
-                                  <h4>John Doe</h4>
-                                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy 
-                    </p>
-                                
-                                </div>
-                        </div>
-                    </div>
-                    <div class="single-special-slider">
-                        <div class="col-lg-12 col-md-12 col-xs-12">
-                            <div class="member">
-                                <div class="img"><img src="{{asset('assets/img/team/pirson.jpg')}}" alt="pirson"/></div>
-                                  <h4>John Doe</h4>
-                                  <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
-                                
-                                </div>
-                        </div>
-                    </div>
-                    <div class="single-special-slider">
-                        <div class="col-lg-12 col-md-12 col-xs-12">
-                            <div class="member">
-                                <div class="img"><img src="{{asset('assets/img/team/pirson.jpg')}}" alt="pirson"/></div>
-                                  <h4>John Doe</h4>
-                                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy 
-                    
-                    </p>
-                                
-                                </div>
-                        </div>
-                    </div>
+                    @endforeach
+               
                 </div>
             </div>
         </div>

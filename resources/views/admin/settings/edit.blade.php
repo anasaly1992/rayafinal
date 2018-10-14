@@ -77,6 +77,19 @@
                          <input id="facebook" type="text" class="form-control" name="facebook"  value="{{$setting->facebook}}"  autofocus>
 
                         </div>
+
+                        <div class="form-group col-md-6">
+                                <label for="address_ar" class=" col-form-label text-md-right">{{ __('address_ar') }}</label>
+                                <input id="address_ar" type="text" class="form-control" name="address_ar"  value="{{$setting->address_ar}}"  autofocus>
+       
+                               </div>
+
+                               <div class="form-group col-md-6">
+                                    <label for="address_en" class=" col-form-label text-md-right">{{ __('address_en') }}</label>
+                                    <input id="address_en" type="text" class="form-control" name="address_en"  value="{{$setting->address_en}}"  autofocus>
+           
+                                   </div>
+
                         </div>
 
 

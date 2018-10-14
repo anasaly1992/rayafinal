@@ -503,12 +503,11 @@
                                                             <a href="#">Add review</a>
                                                         </div>
                                                         <div class="amount">
-                                                            <h4>$65.00</h4>
+                                                            <h4>{{$product->price.$currency->name_en }}</h4>
                                                         </div>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                            industry. Lorem Ipsum has beenin the stand ard dummy text ever
-                                                            since the 1500s, when an unknown printer took a galley of type
-                                                            and scrames bled it make a type specimen book.</p>
+                                                        <p>
+                                                           {{ $product->info_en }}
+                                                        </p>
                                                         <div class="row m-p-b">
                                                             <div class="col-sm-12 col-md-6">
                                                                 <div class="por-dse responsive-strok clearfix">

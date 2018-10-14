@@ -51,15 +51,12 @@ class ProductDetailsController extends Controller
     {
         //
         $x=1;
-        $product_show=Product::where('id',$id)->get();
+        $product=Product::find($id);
         $images=Image::where('product_id',$id)->get();
-        //here there is an error
-    //     foreach($product_show as $product){
-    //     $product_category=Product::where('category_id',$product->category_id);
-    //     dd($product_category);
-    //    }
-       
-        return view('front.productDetails',compact('product_show','images','x'));
+        $category_id=$product->category_id;
+        $related_product=Product::where('category_id',$category_id)->get();
+    //    dd($related_product);
+        return view('front.productDetails',compact('product','images','x','related_product'));
         
     }
 

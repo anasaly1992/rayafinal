@@ -4,7 +4,7 @@
 <!--  //   'code', 'name_en', 'name_ar', 'info_en', 'info_ar', 'description_en', 
         //  'description_ar', 'price','price_after', 'otherData', 'quantity', 
         //  'img_main', 'slug', 'order', 'status', 'category_id', -->
-        @foreach($product_show as $product )
+      
     <div class="breadcrumbs-area breadcrumb-bg ptb-100">
         <div class="container">
             <div class="breadcrumbs text-center">
@@ -54,14 +54,8 @@
                     <div class="single-product-content">
                         <div class="single-product-dec pb-30  for-pro-border">
                             <h2>{{$product->name_en}}</h2>
-                            <!-- <span class="ratting">
-                                    <i class="fa fa-star active"></i>
-                                    <i class="fa fa-star active"></i>
-                                    <i class="fa fa-star active"></i>
-                                    <i class="fa fa-star active"></i>
-                                    <i class="fa fa-star active"></i>
-                                </span> -->
-                            <h3>{{$product->price_after}}</h3>
+                           
+                            <h3>Price: {{$product->price_after}} $</h3>
                             <p>{!!$product->info_en!!}</p>
                         </div>
                         <div class="single-cart-color for-pro-border">
@@ -116,26 +110,7 @@
                                     <li><a href="#">{{$product->category->name_en}}</a></li>
                                 </ul>
                             </div>
-                            <!-- <div class="pro-tag">
-                                <p>tags :</p>
-                                <ul>
-                                    <li>
-                                        <a href="#">Clothing</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">accessories</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">fashion</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">footwear</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">kid</a>
-                                    </li>
-                                </ul>
-                            </div> -->
+                           
                         </div>
                         <div class="pro-shared">
                             <p>shared :</p>
@@ -180,119 +155,9 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <p>{!!$product->otherData!!}</p>
-                                    <!-- <div class="single-reviews">
-                                        <div class="single-reviews-left">
-                                            <p>Quality :</p>
-                                        </div>
-                                        <div class="single-reviews-right">
-                                            <ul>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="single-reviews">
-                                        <div class="single-reviews-left">
-                                            <p>Price :</p>
-                                        </div>
-                                        <div class="single-reviews-right">
-                                            <ul>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star-o"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="single-reviews">
-                                        <div class="single-reviews-left">
-                                            <p>Value :</p>
-                                        </div>
-                                        <div class="single-reviews-right">
-                                            <ul>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star-o"></i></li>
-                                                <li><i class="fa fa-star-o"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <p>themedream1 (Posted on 27/09/2018) </p> -->
+                                  
                                 </div>
-                                <!-- <div class="col-md-6">
-                                    <div class="form-add table-responsive">
-                                        <form action="#">
-                                            <div class="form-border">
-                                                <div class="add-text">
-                                                    <h3>
-                                                        You're reviewing:
-                                                        <span>product title</span>
-                                                    </h3>
-                                                    <p>
-                                                        How do you rate this product?*
-                                                    </p>
-                                                </div>
-                                                <table class="data-table">
-                                                    <tr>
-                                                        <th></th>
-                                                        <th>1 star</th>
-                                                        <th>2 stars</th>
-                                                        <th>3 stars</th>
-                                                        <th>4 stars</th>
-                                                        <th>5 stars</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="one">Quality</td>
-                                                        <td><input type="radio" name="ratings" required></td>
-                                                        <td><input type="radio" name="ratings" required></td>
-                                                        <td><input type="radio" name="ratings" required></td>
-                                                        <td><input type="radio" name="ratings" required></td>
-                                                        <td><input type="radio" name="ratings" required></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="one">Price</td>
-                                                        <td><input type="radio" name="ratings" required></td>
-                                                        <td><input type="radio" name="ratings" required></td>
-                                                        <td><input type="radio" name="ratings" required></td>
-                                                        <td><input type="radio" name="ratings" required></td>
-                                                        <td><input type="radio" name="ratings" required></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="one">Value</td>
-                                                        <td><input type="radio" name="ratings" required></td>
-                                                        <td><input type="radio" name="ratings" required></td>
-                                                        <td><input type="radio" name="ratings" required></td>
-                                                        <td><input type="radio" name="ratings" required></td>
-                                                        <td><input type="radio" name="ratings" required></td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="reviews-form">
-                                        <form action="#">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <input placeholder="Your name" type="text">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <input placeholder="Summary of Your Review" type="text">
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <textarea id="contact_message" name="message" placeholder="Review"></textarea>
-                                                    <button class="reviews-btn" type="submit" name="submit">Submit Review</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div> -->
+                              
                             </div>
                         </div>
                     </div>
@@ -312,10 +177,13 @@
                     <div class="tab-pane active" id="dresses">
                         <div class="row">
                             <div class="product-curosel product-curosel-style owl-carousel">
+                            @foreach($related_product as $product)
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <div class="single-shop">
                                         <div class="shop-img">
-                                            <a href="#"><img src="assets/img/shop/equal/1.jpg" alt="" /></a>
+                                         <a href="#">
+                                          <img src="{!!asset('upload/product/'.$product->img_main)!!}" alt="{{$product->name_en}}" />
+                                            </a>
                                             <div class="price-up-down">
                                                 <span class="sale-new">new</span>
                                             </div>
@@ -334,170 +202,16 @@
                                         <div class="shop-text-all">
                                             <div class="title-color fix">
                                                 <div class="shop-title f-left">
-                                                    <h3><a href="#">Perfume</a></h3>
+                                                    <h3><a href="{{ route('product_details.show',$product->id) }}">{{$product->name_en}}</a></h3>
                                                 </div>
                                                 <div class="price f-right">
-                                                    <span class="new">$340.00</span>
+                                                    <span class="new">{{$product->price_after}} $</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <div class="single-shop">
-                                        <div class="shop-img">
-                                            <a href="#"><img src="assets/img/shop/equal/2.jpg" alt="" /></a>
-                                            <div class="price-up-down">
-                                                <span class="sale-new">new</span>
-                                            </div>
-                                            <div class="button-group">
-                                                <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                                    <i class="pe-7s-cart"></i>
-                                                </a>
-                                                <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                                    <i class="pe-7s-like"></i>
-                                                </a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                                    <i class="pe-7s-look"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="shop-text-all">
-                                            <div class="title-color fix">
-                                                <div class="shop-title f-left">
-                                                    <h3><a href="#">Perfume</a></h3>
-                                                </div>
-                                                <div class="price f-right">
-                                                    <span class="new">$340.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <div class="single-shop">
-                                        <div class="shop-img">
-                                            <a href="#"><img src="assets/img/shop/equal/3.jpg" alt="" /></a>
-                                            <div class="price-up-down">
-                                                <span class="sale-new">new</span>
-                                            </div>
-                                            <div class="button-group">
-                                                <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                                    <i class="pe-7s-cart"></i>
-                                                </a>
-                                                <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                                    <i class="pe-7s-like"></i>
-                                                </a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                                    <i class="pe-7s-look"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="shop-text-all">
-                                            <div class="title-color fix">
-                                                <div class="shop-title f-left">
-                                                    <h3><a href="#">Perfume</a></h3>
-                                                </div>
-                                                <div class="price f-right">
-                                                    <span class="new">$340.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <div class="single-shop">
-                                        <div class="shop-img">
-                                            <a href="#"><img src="assets/img/shop/equal/8.jpg" alt="" /></a>
-                                            <div class="price-up-down">
-                                                <span class="sale-new">new</span>
-                                            </div>
-                                            <div class="button-group">
-                                                <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                                    <i class="pe-7s-cart"></i>
-                                                </a>
-                                                <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                                    <i class="pe-7s-like"></i>
-                                                </a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                                    <i class="pe-7s-look"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="shop-text-all">
-                                            <div class="title-color fix">
-                                                <div class="shop-title f-left">
-                                                    <h3><a href="#">Perfume</a></h3>
-                                                </div>
-                                                <div class="price f-right">
-                                                    <span class="new">$340.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <div class="single-shop">
-                                        <div class="shop-img">
-                                            <a href="#"><img src="assets/img/shop/equal/4.jpg" alt="" /></a>
-                                            <div class="price-up-down">
-                                                <span class="sale-new">new</span>
-                                            </div>
-                                            <div class="button-group">
-                                                <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                                    <i class="pe-7s-cart"></i>
-                                                </a>
-                                                <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                                    <i class="pe-7s-like"></i>
-                                                </a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                                    <i class="pe-7s-look"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="shop-text-all">
-                                            <div class="title-color fix">
-                                                <div class="shop-title f-left">
-                                                    <h3><a href="#">Perfume</a></h3>
-                                                </div>
-                                                <div class="price f-right">
-                                                    <span class="new">$340.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <div class="single-shop">
-                                        <div class="shop-img">
-                                            <a href="#"><img src="assets/img/shop/equal/5.jpg" alt="" /></a>
-                                            <div class="price-up-down">
-                                                <span class="sale-new">new</span>
-                                            </div>
-                                            <div class="button-group">
-                                                <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                                    <i class="pe-7s-cart"></i>
-                                                </a>
-                                                <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                                    <i class="pe-7s-like"></i>
-                                                </a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                                    <i class="pe-7s-look"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="shop-text-all">
-                                            <div class="title-color fix">
-                                                <div class="shop-title f-left">
-                                                    <h3><a href="#">Perfume</a></h3>
-                                                </div>
-                                                <div class="price f-right">
-                                                    <span class="new">$340.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                           @endforeach
                             </div>
                         </div>
                     </div>
@@ -505,7 +219,7 @@
             </div>
         </div>
     </div>
-        @endforeach
+     
     <!-- single product area end -->
     <!-- subscribe area start -->
     <div class="subscribe-area gray-bg">

@@ -145,7 +145,7 @@
                             <div class="shop-text-all">
                                 <div class="title-color fix">
                                     <div class="shop-title f-left">
-                                        <h3><a href="#">{{$product->name_en}}</a></h3>
+                                        <h3><a href="{{ route('product_details.show',$product->id) }}">{{$product->name_en}}</a></h3>
                                     </div>
                                     <div class="price f-right">
                                         <span class="new">{{$currency->name_en.$product->price}}</span>

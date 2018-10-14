@@ -76,7 +76,7 @@ Route::group(['middleware' => 'is.admin'], function () {
 });
    //about
    Route::get('about','PageController@about')->name('about');
-   Route::get('/product_details','ProductDetailsController@index');
+   Route::resource('product_details','frontend\ProductDetailsController');
    //contact
    Route::get('contact','PageController@contact')->name('contact');
    //charge and terms_conditions
@@ -88,7 +88,7 @@ Route::group(['middleware' => 'is.admin'], function () {
      //shop
      Route::get('shop','PageController@shop')->name('shop');
      //product-page
-     Route::get('product_page','PageController@product_page')->name('product_page');
+    //  Route::get('product_page','PageController@product_page')->name('product_page');
     //wish_listaccount
      Route::get('wishlist','PageController@wishlist')->name('wishlist');
      //account

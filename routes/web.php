@@ -34,7 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'is.admin'], function () {
  Route::get('/admin', 'admin\AdminController@index');
- Route::get('admin/opinions', 'admin\OpinionController@index');
+ Route::resource('admin/opinions', 'admin\OpinionController');
  //users
  Route::resource('admin/users','admin\UserController');
   //currencies

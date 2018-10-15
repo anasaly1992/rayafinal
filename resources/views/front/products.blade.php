@@ -48,7 +48,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="single-sidebar">
+                        <!-- <div class="single-sidebar">
                             <h3 class="sidebar-title">Popular Tags</h3>
                             <div class="tag">
                                 <ul>
@@ -60,12 +60,12 @@
                                     <li><a href="#">View All Tags</a></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="single-sidebar">
                             <div class="sidebar-img-text">
                                 <div class="sidebar-img">
                                     <a href="#">
-                                        <img src="assets/img/shop/2.jpg" alt="">
+                                        <img src="{{asset('assets/img/shop/2.jpg')}}" alt="">
                                     </a>
                                     <div class="sidebar-text">
                                         <h3>save up to </h3>

@@ -1,5 +1,8 @@
 @extends('layouts.FrontLayout.master')
 @section('content')
+@php
+use Illuminate\Support\Facades\URL;
+@endphp
 <!-- breadcrumbs start -->
 <!--  //   'code', 'name_en', 'name_ar', 'info_en', 'info_ar', 'description_en', 
         //  'description_ar', 'price','price_after', 'otherData', 'quantity', 
@@ -128,7 +131,7 @@
                                 <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
                             </ul>  --}}
                             
-                            <?php  echo Share::page('http://jorenvanhocht.be',$product->name_en)
+                            <?php  echo Share::page(URL::current(),$product->name_en)
                             ->facebook()
                             ->twitter()
                             ->googlePlus()

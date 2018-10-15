@@ -19,7 +19,7 @@
                             <div class="sidebar-list">
                                 <ul>
                                    @foreach($categories as $category)
-                                    <li><input type="checkbox"> <a href="#">{{$category->name_en}}</a></li>
+                                    <li class="CatId"><input type="checkbox" id="catId" value="{{$category->id}}"> {{ucwords($category->name_en)}} ({{App\Product::where('category_id',$category->id)->count()}}) </li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -65,7 +65,7 @@
                             <div class="sidebar-img-text">
                                 <div class="sidebar-img">
                                     <a href="#">
-                                        <img src="{{asset('assets/img/shop/2.jpg')}}" alt="">
+                                        <!-- <img src="{{asset('assets/img/shop/2.jpg')}}" alt=""> -->
                                     </a>
                                     <div class="sidebar-text">
                                         <h3>save up to </h3>
@@ -242,3 +242,20 @@
         </div>
     </div>
 @endsection
+<style>
+    .CatId{
+        padding:10px;
+    }
+    .CatId b{
+        font-size:18px;
+        /* color:#dddddd; */
+    }
+</style>
+<script>
+  $(document).ready(function () {
+   $('#catId').click(function() {
+        alert('sara');
+    });
+    });
+  
+</script>

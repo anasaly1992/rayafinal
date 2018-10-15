@@ -28,25 +28,31 @@
                     <div class="product-details-tab">
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div class="tab-pane active" id="product1">
-                                <div class="large-img">
-                                    <img src="{!!asset('upload/product/'.$product->img_main)!!}" alt="{{$product->name_en}}" />
-                                </div>
-                            </div>
+                           @php 
+                           $flag=0;
+                           @endphp
                             @foreach($images as $image)
-                            <div class="tab-pane" id="product{{$x++}}">
+                            <div class="tab-pane @if($flag ==0 ) {{ 'active' }} @endif" id="{{ $image->id  }}">
                                 <div class="large-img">
-                                    <img src="{!!asset('upload/product/other'.$image->img_name)!!}" alt="{{$product->name_en}}" />
+                                    <img src="{!!asset('upload/product/other/'.$image->img_name)!!}" alt="{{$product->name_en}}" />
                                 </div>
                             </div>
+                            @php 
+                            $flag++;
+                            @endphp
                         @endforeach
                         </div>
+                        @php 
+                        $flag=0;
+                        @endphp
                         <!-- Nav tabs -->
                         <div class="details-tab owl-carousel">
-                            <div class="active"><a href="#product1" data-toggle="tab"><img src="{!!asset('upload/product/'.$product->img_main)!!}" alt="" /></a></div>                            
                             @foreach($images as $image)
-                            <div><a href="#product{{$x++}}" data-toggle="tab"><img src="{!!asset('upload/product/other/'.$image->img_name)!!}" alt="{{$product->name_en}}" /></a></div>
-                             @endforeach
+                            <div><a @if($flag == 0 )  {{ "class='active'" }} @endif href="#{{ $image->id }}" data-toggle="tab"><img src="{!!asset('upload/product/other/'.$image->img_name)!!}" alt="{{$product->name_en}}" /></a></div>
+                            @php 
+                            $flag++;
+                            @endphp
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -114,13 +120,19 @@
                         </div>
                         <div class="pro-shared">
                             <p>shared :</p>
-                            <ul>
+                            {{--  <ul>
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                 <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                                 <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                            </ul>
+                            </ul>  --}}
+                            
+                            <?php  echo Share::page('http://jorenvanhocht.be',$product->name_en)
+                            ->facebook()
+                            ->twitter()
+                            ->googlePlus()
+                            ->linkedin();; ?>
                         </div>
                     </div>
                 </div>
@@ -182,7 +194,7 @@
                                     <div class="single-shop">
                                         <div class="shop-img">
                                          <a href="#">
-                                          <img src="{!! asset('upload/product/'.$product->img_main)"alt="$product->name_en !!}" />
+                                          <img src="{!! asset('upload/product/'.$product->img_main) !!}"  alt="{{ $product->name_en }}"/>
                                             </a>
                                             <div class="price-up-down">
                                                 <span class="sale-new">new</span>

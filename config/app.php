@@ -147,6 +147,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Jorenvh\Share\Providers\ShareServiceProvider::class,
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+
 
         /*
          * Package Service Providers...
@@ -211,6 +213,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Carbon' => 'Carbon\Carbon',
         'Share' => Jorenvh\Share\ShareFacade::class,
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+
 
     ],
 

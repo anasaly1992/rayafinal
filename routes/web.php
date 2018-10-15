@@ -88,6 +88,7 @@ Route::get('about', 'PageController@about')->name('about');
 Route::resource('product_details', 'frontend\ProductDetailsController');
 //services
 Route::get('services', 'frontend\ServicesController@index');
+
 //products
 Route::get('products', 'frontend\ProductController@index');
 //service details
@@ -95,7 +96,9 @@ Route::get('servicedetails/{$slug}', 'frontend\ServicesController@details');
 //contact
 Route::get('contact', 'frontend\ContactController@index')->name('contact');
 //contact
-Route::get('contact', 'frontend\ProductController@index')->name('products');
+Route::get('products', 'frontend\ProductController@index')->name('products');
+//cart
+Route::post('addtocart', 'frontend\ProductController@addToCart')->name('addtocart');
 //charge and terms_conditions
 Route::get('policy', 'PageController@policy')->name('policy');
 //terms_conditionsshipping
@@ -110,8 +113,7 @@ Route::get('shop', 'PageController@shop')->name('shop');
 Route::get('wishlist', 'PageController@wishlist')->name('wishlist');
 //account
 Route::get('account', 'PageController@account')->name('account');
-//cart
-Route::get('cart', 'PageController@cart')->name('cart');
+
 //checkout
 Route::get('checkout', 'PageController@checkout')->name('checkout');
 //order_overviewpayment

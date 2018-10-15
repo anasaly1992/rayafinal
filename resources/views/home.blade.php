@@ -131,13 +131,13 @@
                                 </div>
                                 @endif
                                 <div class="button-group">
-                                    <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
+                                    <a  href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view{{ $product->id }}">
                                         <i class="pe-7s-cart"></i>
                                     </a>
                                     <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                        <i class="pe-7s-like"></i>
+                                        {{--  <i class="pe-7s-like"></i>  --}}
                                     </a>
-                                    <a href="#" data-toggle="modal" data-target="#quick-view{{$product->id}}" title="Quick View">
+                                    <a href="#" data-toggle="modal" data-target="#quick-view{{ $product->id }}" title="Quick View">
                                         <i class="pe-7s-look"></i>
                                     </a>
                                 </div>

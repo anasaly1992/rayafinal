@@ -96,12 +96,16 @@
                             </div>
                             <div class="shopping-cart f-right">
                                 <a class="top-cart" href="cart.html"><i class="pe-7s-cart"></i></a>
-                                <span>01</span>
+                                <span>{{ Cart::count() }} </span>
                                 <ul>
+@foreach(Cart::content() as $cart)
+@php 
+$product = App\Product::find($cart->id);
+@endphp
                                     <li>
                                         <div class="cart-img-price">
                                             <div class="cart-img">
-                                                <a href="#"><img src="assets/img/cart/1.jpg" alt="" /></a>
+                                                <a width="50px" height='50px' href="#"><img src="{!!asset('upload/product/'.$product->img_main)!!}" alt="" /></a>
                                             </div>
                                             <div class="cart-content">
                                                 <h3><a href="#">Item Name</a> </h3>
@@ -112,24 +116,13 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="cart-img-price">
-                                            <div class="cart-img">
-                                                <a href="#"><img src="assets/img/cart/1.jpg" alt="" /></a>
-                                            </div>
-                                            <div class="cart-content">
-                                                <h3><a href="#">Item Name</a> </h3>
-                                                <span class="cart-price">1 x $ 299.00</span>
-                                            </div>
-                                            <div class="cart-del">
-                                                <i class="pe-7s-close-circle"></i>
-                                            </div>
-                                        </div>
-                                    </li>
+@endforeach
+                                  
+
                                     <li>
                                         <p class="total">
                                             Subtotal:
-                                            <span>$299.00</span>
+                                            <span>{{ Cart::total() }}</span>
                                         </p>
                                     </li>
                                     <li>
@@ -571,26 +564,28 @@
                                                                 <div class="col-sm-12 col-md-6">
                                                                     <div class="por-dse clearfix">
                                                                         <ul>
+                                                                          <form id="form1" name="contact_form" class="default-form" action="{{ url('addtocart')}}"
+                                                                                method="POST">
+                                                                              {{ csrf_field() }}
                                                                             <li class="share-btn clearfix"><span>quantity</span>
-                                                                                <input class="input-text qty" name="qty" maxlength="12" value="1" title="Qty" type="text">
+                                                                                <input class="input-text qty" name="quantity" maxlength="12" value="1" title="quantity" type="number" >
                                                                             </li>
-                                                                            <li class="share-btn clearfix">
-                                                                            <!--    <a href="#"><i class="fa fa-facebook"></i></a>
-                                                                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                                                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                                                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                                                                <a href="#"><i class="fa fa-instagram"></i></a> -->
-                                                                          
-                                                                 
-                                                                                <?php  echo Share::page('http://jorenvanhocht.be',$product->name_en)
-                                                                                ->facebook()
-                                                                                ->twitter()
-                                                                                ->googlePlus()
-                                                                                ->linkedin();; ?>
-                                                                        </li>
+                                                                            <input type="hidden" value="{{ $product->id }}" name='id' >
+                                                                            <input type="hidden" value="{{ $product->price }}" name='price' >
+                                                                            <input type="hidden" value="{{ $product->name_en }}" name='name' >
                                                                         </ul>
-         
+                                                                        <div class="por-dse add-to">
+                                                                                <a href="#" onclick="document.getElementById('form1').submit();">add to cart</a>
+                                                                         </div>
+                                                                        </form>
                                                                     </div>
+                                                                    <div class="pro-shared">
+                                                                            <?php  echo Share::page('http://jorenvanhocht.be',$product->name_en)
+                                                                            ->facebook()
+                                                                            ->twitter()
+                                                                            ->googlePlus()
+                                                                            ->linkedin();; ?>
+                                                                            </div>
                                                                 </div>
                                                                 <div class="col-sm-12 col-md-6">
                                                                    <!-- <div class="por-dse clearfix responsive-othre">
@@ -600,9 +595,7 @@
                                                                             <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
                                                                         </ul>
                                                                     </div> -->
-                                                                    <div class="por-dse add-to">
-                                                                        <a href="#">add to cart</a>
-                                                                    </div>
+                                                                   
                                                                 </div>
                                                             </div>
                                                         </div>

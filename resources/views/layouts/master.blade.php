@@ -138,7 +138,7 @@
           <li><a href="{{url('admin/categories')}}"><i class="fa fa-link"></i> <span>Categories</span></a></li>
                   <li><a href="{{url('admin/features')}}"><i class="fa fa-angellist"></i> <span> Features</span></a></li>
                   <li><a href="{{url('admin/featuredetails')}}"><i class="fa fa-angellist"></i> <span> Features details</span></a></li>
-                  <li><a href="{{url('admin/productfeature')}}"><i class="fa fa-angellist"></i> <span> Product Feature</span></a></li>
+                  {{--  <li><a href="{{ url }}('admin/productfeature')}}"><i class="fa fa-angellist"></i> <span> Product Feature</span></a></li>  --}}
 
           <li><a href="{{url('admin/orders')}}"><i class="fa fa-get-pocket"></i> <span>Order</span></a></li>
 

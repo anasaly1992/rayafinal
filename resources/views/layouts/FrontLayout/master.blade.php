@@ -426,8 +426,8 @@
                             </div>
                             <div class="widget-text">
                                 <ul>
-                                    <li><a href="#">Return Policy </a></li>
-                                    <li><a href="#">Privacy Policy </a></li>
+                                    <li><a href="{{route('page.by.slug',['slug' => 'alahkam-oalshrot'])}}">Return Policy </a></li>
+                                    <li><a href="{{route('page.by.slug',['slug' => 'alahkam-oalshrot'])}}">Term And Condition </a></li>
                                     <li><a href="#">Product Warranty </a></li>
                                     <li><a href="#">Forum</a></li>
                                     <li><a href="#">Order Tracking </a></li>
@@ -642,7 +642,6 @@
      <script src="{{ asset('js/share.js') }}"></script>
 
 
-     //ajax 
 
      <script src="http://code.jquery.com/jquery-3.3.1.min.js"
      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

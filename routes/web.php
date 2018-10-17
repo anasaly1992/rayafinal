@@ -97,8 +97,10 @@ Route::get('servicedetails/{$slug}', 'frontend\ServicesController@details');
 Route::get('contact', 'frontend\ContactController@index')->name('contact');
 //contact
 Route::get('products', 'frontend\ProductController@index')->name('products');
-//cart
+//add to cart
 Route::post('addtocart', 'frontend\ProductController@addToCart')->name('addtocart');
+//shopping cart
+Route::get('cart', 'frontend\ProductController@cart')->name('cart');
 //Remove from cart
 Route::post('removefromcart', 'frontend\ProductController@removeFromCart')->name('removefromcart');
 //charge and terms_conditions

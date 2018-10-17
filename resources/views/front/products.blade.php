@@ -19,7 +19,7 @@
                             <div class="sidebar-list">
                                 <ul>
                                    @foreach($categories as $category)
-                                    <li><input type="checkbox"> <a href="#">{{$category->name_en}}</a></li>
+                                    <li class="catId"><input type="checkbox" id="catId"  class="try" value="{{$category->id}}"> {{ucwords($category->name_en)}} ({{App\Product::where('category_id',$category->id)->count()}}) </li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -65,7 +65,7 @@
                             <div class="sidebar-img-text">
                                 <div class="sidebar-img">
                                     <a href="#">
-                                        <img src="{{asset('assets/img/shop/2.jpg')}}" alt="">
+                                        <!-- <img src="{{asset('assets/img/shop/2.jpg')}}" alt=""> -->
                                     </a>
                                     <div class="sidebar-text">
                                         <h3>save up to </h3>
@@ -106,10 +106,10 @@
                                         </select>
                                 </div>
                             </div>
-                            <div class="tab-product">
+                            <div class="tab-product" id="updateDiv">
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="grid">
-                                        <div class="row">
+                                        <div class="row" >
                                             @foreach($products as $product)
                                             <div class="col-md-6 col-lg-4 col-sm-6">
                                                 <div class="single-shop mb-40">
@@ -156,8 +156,9 @@
                                             @endforeach
                                         </div>
                                     </div>
-                                    <div class="tab-pane mb-10" id="list">
-                                        <div class="row">
+                                    <!-- <div id="updateDiv2"> -->
+                                    <div class="tab-pane mb-10"  id="list">
+                                        <div class="row" >
                                             <div class="col-md-12">
                                                 <div class="row">
                                                   @foreach($products as $product)
@@ -230,6 +231,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- </div> -->
                                     <div class="page-pagination text-center">
                                           {{$products->render()}}
                                     </div>
@@ -242,3 +244,4 @@
         </div>
     </div>
 @endsection
+

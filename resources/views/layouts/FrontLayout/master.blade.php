@@ -32,8 +32,10 @@
     <!-- <link rel="stylesheet" href="assets/css/bootstrap.rtl.full.min.css"> -->
     <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
    
-
+    <script src="http://cdn.tinymce.com/4/tinymce.min.js"></script>
     <script src="{{asset('assets/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+    
 </head>
 
 <body>

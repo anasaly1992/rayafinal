@@ -91,11 +91,14 @@ Route::get('services', 'frontend\ServicesController@index');
 
 //products
 Route::get('products', 'frontend\ProductController@index');
+
 //service details
 Route::get('servicedetails/{$slug}', 'frontend\ServicesController@details');
+//contactcontact_email
+Route::post('contact', 'frontend\ContactController@contact_email')->name('contact-us');
 //contact
 Route::get('contact', 'frontend\ContactController@index')->name('contact');
-//contact
+// product
 Route::get('products', 'frontend\ProductController@index')->name('products');
 //add to cart
 Route::post('addtocart', 'frontend\ProductController@addToCart')->name('addtocart');
@@ -126,3 +129,4 @@ Route::get('order_overview', 'PageController@order_overview')->name('order_overv
 Route::get('payment', 'PageController@payment')->name('payment');
 //order_complete
 Route::get('order_complete', 'PageController@order_complete')->name('order_complete');
+

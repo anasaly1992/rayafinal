@@ -60,13 +60,25 @@
                             </ul>
                         </div>
                     </div>
+                    <!-- -->
                     <div class="col-md-7 col-lg-7 col-sm-7">
                         <div class="sent-message">
-                            <form class="contact_form" id="contact_form" action="http://nahartheme.com/tf/Chaffer-preview/contact-form.php" method="post">
+                            <form class="contact_form" action="{{route('contact-us')}}" method="post">
+                               @csrf
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="main-input mb-10">
-                                            <input id="contact_name" name="name" placeholder="Name*" type="text">
+                                            <input id="contact_name" name="username" placeholder="Name*" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="main-input mb-10">
+                                            <input id="contact_mobile" name="mobile" placeholder="Phone" type="text">
+                                        </div>
+                                    </div>
+                                       <div class="col-md-12">
+                                        <div class="main-input mb-10">
+                                            <input id="contact_subject" name="subject" placeholder="Subject*" type="text">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -80,7 +92,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <button class="submit ripple-btn" type="submit" name="submit" id="contact_submit" data-complete-text="Well done!">Send Massage</button>
+                                        <button class="submit ripple-btn" type="submit" name="submit" >Send Massage</button>
                                     </div>
                                 </div>
                             </form>

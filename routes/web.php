@@ -94,9 +94,11 @@ Route::get('products', 'frontend\ProductController@index');
 
 //service details
 Route::get('servicedetails/{$slug}', 'frontend\ServicesController@details');
+//contactcontact_email
+Route::post('contact', 'frontend\ContactController@contact_email')->name('contact-us');
 //contact
 Route::get('contact', 'frontend\ContactController@index')->name('contact');
-//contact
+// product
 Route::get('products', 'frontend\ProductController@index')->name('products');
 //cart
 Route::post('addtocart', 'frontend\ProductController@addToCart')->name('addtocart');

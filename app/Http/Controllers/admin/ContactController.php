@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Admin;
 
 use App\Contact;
 use Illuminate\Http\Request;
@@ -19,7 +19,7 @@ class ContactController extends Controller
         //
         $table='Contact Us';
         $contacts=Contacts::all();
-        return view('backend/contacts.index',compact('table','contacts'));
+        return view('admin/contacts.index',compact('table','contacts'));
 
     }
 
@@ -54,7 +54,7 @@ class ContactController extends Controller
     {
         //
         $contact=Contact::find($id);
-        return view('backend/contacts.show',compact('contact'));
+        return view('admin/contacts.show',compact('contact'));
     }
 
     /**

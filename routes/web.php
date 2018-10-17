@@ -91,6 +91,7 @@ Route::get('services', 'frontend\ServicesController@index');
 
 //products
 Route::get('products', 'frontend\ProductController@index');
+
 //service details
 Route::get('servicedetails/{$slug}', 'frontend\ServicesController@details');
 //contact
@@ -122,3 +123,4 @@ Route::get('order_overview', 'PageController@order_overview')->name('order_overv
 Route::get('payment', 'PageController@payment')->name('payment');
 //order_complete
 Route::get('order_complete', 'PageController@order_complete')->name('order_complete');
+

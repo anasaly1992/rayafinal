@@ -96,35 +96,36 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="shopping-cart f-right">
+                            <div class="shopping-cart f-right" id='msg'>
                                 <a class="top-cart" href="cart.html"><i class="pe-7s-cart"></i></a>
                                 <span>{{ Cart::count() }} </span>
-                                <ul>
-@foreach(Cart::content() as $cart)
-@php 
-$product = App\Product::find($cart->id);
-@endphp
+                                <ul >
+                                        <?php foreach(Cart::content() as $row) :  
+                                        $product = App\Product::find($row->id);
+                                        ?>
+
                                     <li>
                                         <div class="cart-img-price">
                                             <div class="cart-img">
-                                                <a width="50px" height='50px' href="#"><img src="{!!asset('upload/product/'.$product->img_main)!!}" alt="" /></a>
+                                                <a href="#"><img src="{!!asset('upload/product/'.$product->img_main)!!}" alt="" height="70px" width="70px"/></a>
                                             </div>
                                             <div class="cart-content">
-                                                <h3><a href="#">Item Name</a> </h3>
-                                                <span class="cart-price">1 x $ 299.00</span>
+                                                <h3><a href="#">{{ $row->name }}</a> </h3>
+                                                <span class="cart-price">{{ $row->price *$row->qty }}</span>
                                             </div>
                                             <div class="cart-del">
-                                                <i class="pe-7s-close-circle"></i>
+                                                <input type="hidden" value="{{ $row->rowId }}" id="productId">
+                                                <i class="pe-7s-close-circle" id='cartdiv'></i>
                                             </div>
                                         </div>
                                     </li>
-@endforeach
+                                      <?php endforeach ?>
                                   
 
                                     <li>
                                         <p class="total">
                                             Subtotal:
-                                            <span>{{ Cart::total() }}</span>
+                                            <span>{{ Cart::subtotal() }}</span>
                                         </p>
                                     </li>
                                     <li>
@@ -570,14 +571,17 @@ $product = App\Product::find($cart->id);
                                                                                 method="POST">
                                                                               {{ csrf_field() }}
                                                                             <li class="share-btn clearfix"><span>quantity</span>
-                                                                                <input class="input-text qty" name="quantity" maxlength="12" value="1" title="quantity" type="number" >
+                                                                                <input class="input-text qty" name='quantity' maxlength="12"  value="1"  type="number" >
                                                                             </li>
+
                                                                             <input type="hidden" value="{{ $product->id }}" name='id' >
                                                                             <input type="hidden" value="{{ $product->price }}" name='price' >
                                                                             <input type="hidden" value="{{ $product->name_en }}" name='name' >
+
                                                                         </ul>
                                                                         <div class="por-dse add-to">
-                                                                                <a href="#" onclick="document.getElementById('form1').submit();">add to cart</a>
+                                                                                {{--  <a href="#" onclick="document.getElementById('form1').submit();">add to cart</a>  --}}
+                                                                                <button  class="hvr-shutter-out-horizontal" type="submit">add to cart </button>
                                                                          </div>
                                                                         </form>
                                                                     </div>
@@ -635,6 +639,38 @@ $product = App\Product::find($cart->id);
     <!-- share script -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
      <script src="{{ asset('js/share.js') }}"></script>
+
+
+     //ajax 
+
+     <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+     crossorigin="anonymous">
+     </script>
+     <script>
+        jQuery(document).ready(function(){
+           jQuery('#cartdiv').click(function(e){
+              e.preventDefault();
+              $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': '<?php echo csrf_token() ?>'
+                 }
+             });
+            
+              jQuery.ajax({
+                 url: "{{ url('/removefromcart') }}",
+                 method: 'post',
+                 data: {
+                    productId: jQuery('#productId').val(),
+                 },
+                 success: function(result){
+                    $( "#msg").load(window.location.href + " #msg");
+                 
+                 }});
+              });
+           });
+</script>
+
 
 
 </body>

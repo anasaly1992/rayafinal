@@ -100,6 +100,8 @@ Route::get('contact', 'frontend\ContactController@index')->name('contact');
 Route::get('products', 'frontend\ProductController@index')->name('products');
 //cart
 Route::post('addtocart', 'frontend\ProductController@addToCart')->name('addtocart');
+//Remove from cart
+Route::post('removefromcart', 'frontend\ProductController@removeFromCart')->name('removefromcart');
 //charge and terms_conditions
 Route::get('policy', 'PageController@policy')->name('policy');
 //terms_conditionsshipping

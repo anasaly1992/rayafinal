@@ -96,7 +96,7 @@
                             </div>
                             <div class="shopping-cart f-right" id='msg'>
                                 <a class="top-cart" href="cart.html"><i class="pe-7s-cart"></i></a>
-                                <span>{{ Cart::count() }} </span>
+                                <span> {{ Cart::count() }} </span>
                                 <ul >
                                         <?php foreach(Cart::content() as $row) :  
                                         $product = App\Product::find($row->id);
@@ -132,6 +132,7 @@
                                             <a class="checkout" href="checkout.html">Checkout</a>
                                         </p>
                                     </li>
+                                    
                                 </ul>
                             </div>
                             <div class="main-menu f-right">
@@ -212,7 +213,7 @@
                                                 <li><a href="cart.html">cart</a></li>
                                                 <li><a href="checkout.html">checkout</a></li>
                                                 <li><a href="wishlist.html">wishlist</a></li>
-                                                <li><a href="login.html">login</a></li>
+                                                <li><a href="{{ route('login') }}">login</a></li>
                                                 <li><a href="register.html">register</a></li>
                                                 <li><a href="contact.html">contact</a></li>
                                                 <li><a href="shop-page.html">shop page</a></li>
@@ -261,8 +262,8 @@
                                         <li><a href="cart.html">cart</a></li>
                                         <li><a href="checkout.html">checkout</a></li>
                                         <li><a href="wishlist.html">wishlist</a></li>
-                                        <li><a href="login.html">login</a></li>
-                                        <li><a href="register.html">register</a></li>
+                                        <li><a href="{{ route('login') }}">login</a></li>
+                                        <li><a href="{{ route('register') }}">register</a></li>
                                         <li><a href="contact.html">contact</a></li>
                                         <li><a href="shop-page.html">shop page</a></li>
                                         <li><a href="shop-list.html">shop list</a></li>

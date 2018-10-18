@@ -51,9 +51,10 @@
                                             <input value="1" type="number">
                                         </td>
                                         <td class="product-subtotal">{{ $row->price *$row->qty }}</td>
-                                        <input type="hidden" value="{{ $row->rowId }}" id="productId">
+                                        <input type="hidden" value="{{ $row->rowId }}" id="productId{{ $row->rowId }}">
+                                        <input type="hidden" value="{{ $row->rowId }}" id="rowIdVal{{ $row->rowId }}">
 
-                                        <td class="product-remove" id="{{ $row->rowId }}"><a href="#" ><i  class="fa fa-times" ></i></a></td>
+                                        <td class="product-remove" ><a href="#" ><i  class="fa fa-times delproduct"  data-id="{{ $row->rowId }}"  id="rowId{{ $row->rowId }}" ></i></a></td>
                                     </tr>
                                     @endforeach
                                

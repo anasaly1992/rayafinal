@@ -114,8 +114,9 @@
                                                 <span class="cart-price">{{ $row->price *$row->qty }}</span>
                                             </div>
                                             <div class="cart-del">
-                                                <input type="hidden" value="{{ $row->rowId }}" id="productId">
-                                                <i class="pe-7s-close-circle" id='{{ $row->rowId }}'></i>
+                                                <input type="hidden" value="{{ $row->rowId }}" id="productId{{ $row->rowId }}">
+                                                <input type="hidden" value="{{ $row->rowId }}" id="rowIdVal{{ $row->rowId }}">
+                                                <i class="pe-7s-close-circle delproduct" data-id="{{ $row->rowId }}" id="rowId{{ $row->rowId }}"></i>
                                             </div>
                                         </div>
                                     </li>
@@ -642,32 +643,38 @@
      <script src="{{ asset('js/share.js') }}"></script>
 
 
-<script>
-        jQuery(document).ready(function(){
-           jQuery( $('#productId').val ).click(function(e){
-              e.preventDefault();
-              $.ajaxSetup({
-                 headers: {
-                     'X-CSRF-TOKEN': '<?php echo csrf_token() ?>'
-                 }
-             });
-            
-              jQuery.ajax({
-                 url: "{{ url('/removefromcart') }}",
-                 method: 'post',
-                 data: {
-                    productId: jQuery('#productId').val(),
-                 },
-                 success: function(result){
-                    $( "#msg2").load(window.location.href + " #msg2");
-                    $( "#msg").load(window.location.href + " #msg");
 
-                 }});
-              });
-           });
-</script>
+     <script>
+            jQuery(document).ready(function(){
+               jQuery('.delproduct').click(function(e){
+                  e.preventDefault();
+                  var thisId =$(this).attr('data-id');
+                          var thisrow = $(this).parent().parent().parent();
+                  $.ajaxSetup({
+                     headers: {
+                         'X-CSRF-TOKEN': '<?php echo csrf_token() ?>'
+                     }
+                 });
 
+                  jQuery.ajax({
+                     url: "{{ url('/removefromcart') }}",
+                     method: 'post',
+                     data: {
+                        productId: jQuery('#productId'+thisId).val(),
+                     },
+                     success: function(result){
+                         thisrow.remove();
+                      //  $(this).parent().parent().parent().remove();
+                       // $( "#msg2").load(window.location.href + " #msg2");
+                        $( "#msg").load(window.location.href + " #msg");
+                    
+                     }});
+                  });
+               });
+    </script>
 
+   
+    
 </body>
 
 </html>

@@ -100,8 +100,10 @@ Route::post('contact', 'frontend\ContactController@contact_email')->name('contac
 Route::get('contact', 'frontend\ContactController@index')->name('contact');
 // product
 Route::get('products', 'frontend\ProductController@index')->name('products');
-//cart
+//add to cart
 Route::post('addtocart', 'frontend\ProductController@addToCart')->name('addtocart');
+//shopping cart
+Route::get('cart', 'frontend\ProductController@cart')->name('cart');
 //Remove from cart
 Route::post('removefromcart', 'frontend\ProductController@removeFromCart')->name('removefromcart');
 // //charge and terms_conditions

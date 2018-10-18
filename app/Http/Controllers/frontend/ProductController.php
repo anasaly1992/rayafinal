@@ -38,15 +38,18 @@ class ProductController extends Controller
     //Remove from shopping cart
     public function removeFromCart(Request $request)
     {
-        
-        if ($request->ajax() && isset($request->productId)){
-        Cart::remove($request->productId);
+
+        if ($request->ajax() && isset($request->productId)) {
+            Cart::remove($request->productId);
         }
 
-        return response()->json(['success' => 'Data is successfully added',200]);
+        return response()->json(['success' => 'Data is successfully added', 200]);
 
     }
 
-    
+    public function cart()
+    {
+        return view('front.cart');
+    }
 
 }

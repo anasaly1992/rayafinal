@@ -115,7 +115,7 @@
                                             </div>
                                             <div class="cart-del">
                                                 <input type="hidden" value="{{ $row->rowId }}" id="productId">
-                                                <i class="pe-7s-close-circle" id='cartdiv'></i>
+                                                <i class="pe-7s-close-circle" id='{{ $row->rowId }}'></i>
                                             </div>
                                         </div>
                                     </li>
@@ -648,8 +648,9 @@
      crossorigin="anonymous">
      </script>
      <script>
+<script>
         jQuery(document).ready(function(){
-           jQuery('#cartdiv').click(function(e){
+           jQuery( $('#productId').val ).click(function(e){
               e.preventDefault();
               $.ajaxSetup({
                  headers: {
@@ -664,13 +665,13 @@
                     productId: jQuery('#productId').val(),
                  },
                  success: function(result){
+                    $( "#msg2").load(window.location.href + " #msg2");
                     $( "#msg").load(window.location.href + " #msg");
-                 
+
                  }});
               });
            });
 </script>
-
 
 
 </body>

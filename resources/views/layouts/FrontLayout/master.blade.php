@@ -75,10 +75,10 @@
                                 <div class="currence-user-page">
                                     <div class="user-page">
                                         <ul>
-                                            <li><a href="wishlist.html"><i class="pe-7s-like"></i> My Wishlist</a></li>
+                                            {{--  <li><a href="wishlist.html"><i class="pe-7s-like"></i> My Wishlist</a></li>  --}}
                                             <li><a href="checkout.html"><i class="pe-7s-check"></i> Checkout</a></li>
-                                            <li><a href="login.html"><i class="pe-7s-next-2"></i> Sign In</a></li>
-                                            <li><a href="register.html"><i class="pe-7s-add-user"></i> Create an account</a></li>
+                                            <li><a href="{{ route('login') }}"><i class="pe-7s-next-2"></i> Sign In</a></li>
+                                            <li><a href="{{ route('register') }}"><i class="pe-7s-add-user"></i> Create an account</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@
                                     <div class="user-page">
                                         <ul>
                                             <li><a href="#"><i class="pe-7s-flag"></i> Language</a></li>
-                                            <li><a href="#"><i class="pe-7s-credit"></i> Currency</a></li>
+                                            {{--  <li><a href="#"><i class="pe-7s-credit"></i> Currency</a></li>  --}}
                                         </ul>
                                     </div>
                                 </div>

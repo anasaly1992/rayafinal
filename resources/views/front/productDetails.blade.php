@@ -119,7 +119,7 @@ use Illuminate\Support\Facades\URL;
                                     <li><a href="#">{{$product->category->name_en}}</a></li>
                                 </ul>
                             </div>
-                           
+                            
                         </div>
                         <div class="pro-shared">
                             <p>shared :</p>

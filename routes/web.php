@@ -106,11 +106,11 @@ Route::post('addtocart', 'frontend\ProductController@addToCart')->name('addtocar
 Route::get('cart', 'frontend\ProductController@cart')->name('cart');
 //Remove from cart
 Route::post('removefromcart', 'frontend\ProductController@removeFromCart')->name('removefromcart');
-//charge and terms_conditions
-Route::get('policy', 'PageController@policy')->name('policy');
-//terms_conditionsshipping
-Route::get('terms', 'PageController@term')->name('terms');
-//shipping
+// //charge and terms_conditions
+// Route::get('policy', 'PageController@policy')->name('policy');
+// //terms_conditionsshipping
+// Route::get('terms', 'PageController@term')->name('terms');
+// //shipping
 Route::get('shipping', 'PageController@shipping')->name('shipping');
 //shop
 Route::get('shop', 'PageController@shop')->name('shop');
@@ -130,3 +130,5 @@ Route::get('payment', 'PageController@payment')->name('payment');
 //order_complete
 Route::get('order_complete', 'PageController@order_complete')->name('order_complete');
 
+//Pages '/blogs/{slug}', ['as'=>'blog.by.slug', 'uses'=> 'CmsController@show']
+Route::get('page/{slug}', ['as'=>'page.by.slug', 'uses'=>'PageController@show']);

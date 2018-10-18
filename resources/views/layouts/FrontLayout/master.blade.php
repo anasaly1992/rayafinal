@@ -427,8 +427,8 @@
                             </div>
                             <div class="widget-text">
                                 <ul>
-                                    <li><a href="#">Return Policy </a></li>
-                                    <li><a href="#">Privacy Policy </a></li>
+                                    <li><a href="{{route('page.by.slug',['slug' => 'alahkam-oalshrot'])}}">Return Policy </a></li>
+                                    <li><a href="{{route('page.by.slug',['slug' => 'alahkam-oalshrot'])}}">Term And Condition </a></li>
                                     <li><a href="#">Product Warranty </a></li>
                                     <li><a href="#">Forum</a></li>
                                     <li><a href="#">Order Tracking </a></li>
@@ -643,6 +643,31 @@
      <script src="{{ asset('js/share.js') }}"></script>
 
 
+
+     <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+     crossorigin="anonymous">
+     </script>
+     <script>
+<script>
+        jQuery(document).ready(function(){
+           jQuery( $('#productId').val ).click(function(e){
+              e.preventDefault();
+              $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': '<?php echo csrf_token() ?>'
+                 }
+             });
+            
+              jQuery.ajax({
+                 url: "{{ url('/removefromcart') }}",
+                 method: 'post',
+                 data: {
+                    productId: jQuery('#productId').val(),
+                 },
+                 success: function(result){
+                    $( "#msg2").load(window.location.href + " #msg2");
+                    $( "#msg").load(window.location.href + " #msg");
 
      <script>
             jQuery(document).ready(function(){
